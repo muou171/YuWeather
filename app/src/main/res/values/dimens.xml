@@ -1,0 +1,98 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="default_text_size_small_small">12sp</dimen>
+    <dimen name="default_text_size_small">14sp</dimen>
+    <dimen name="default_text_size_big">16sp</dimen>
+    <dimen name="default_text_size_big_big">18sp</dimen>
+
+    <dimen name="default_horizontal_margin">16dp</dimen>
+    <dimen name="default_vertical_margin">16dp</dimen>
+
+    <dimen name="default_padding">5dp</dimen>
+
+    <dimen name="null_width_height">0dp</dimen>
+
+    <dimen name="add_icon_padding">16dp</dimen>
+
+    <dimen name="header_layout_icon_height">280dp</dimen>
+
+    <dimen name="card_left_or_right_margin">16dp</dimen>
+    <dimen name="card_top_or_bottom_margin_best">16dp</dimen>
+    <dimen name="card_top_or_bottom_margin_between">8dp</dimen>
+    <dimen name="card_default_left_or_right_padding">25dp</dimen>
+    <dimen name="card_default_top_or_bottom_padding">10dp</dimen>
+    <dimen name="card_elevation">5dp</dimen>
+    <dimen name="card_corner_radius">5dp</dimen>
+
+    <dimen name="content_detail_error_icon">30dp</dimen>
+
+    <dimen name="content_detail_now_cond_icon">56dp</dimen>
+    <dimen name="content_detail_now_bottom_icon">30dp</dimen>
+    <dimen name="content_detail_now_top_margin">10dp</dimen>
+    <dimen name="content_detail_now_left_or_right_margin_default">10dp</dimen>
+    <dimen name="content_detail_now_left_or_right_margin_big">16dp</dimen>
+    <dimen name="content_detail_basic_update_loc_text_size">16sp</dimen>
+    <dimen name="content_detail_now_cond_txt_text_size">18sp</dimen>
+    <dimen name="content_detail_now_title_text_size">20sp</dimen>
+    <dimen name="content_detail_now_tmp_text_size">40sp</dimen>
+
+    <dimen name="content_detail_forecast_left_margin">10dp</dimen>
+    <dimen name="content_detail_forecast_top_margin">20dp</dimen>
+
+    <dimen name="content_detail_daily_data_icon_width_or_height">35dp</dimen>
+    <dimen name="content_detail_daily_left_or_right_margin">15dp</dimen>
+    <dimen name="content_detail_daily_data_temperature_max_unit_right_margin">16dp</dimen>
+    <dimen name="content_detail_daily_data_temperature_min_unit_right_margin">45dp</dimen>
+    <dimen name="content_detail_daily_data_text_size_big">25sp</dimen>
+    <dimen name="content_detail_daily_data_title_text_size">20sp</dimen>
+    <dimen name="content_detail_daily_data_text_size_small">14sp</dimen>
+
+    <dimen name="content_detail_hourly_data_icon_width_or_height">35dp</dimen>
+    <dimen name="content_detail_hourly_data_bottom_icon_width_or_height">30dp</dimen>
+    <dimen name="content_detail_hourly_data_left_margin">15dp</dimen>
+    <dimen name="content_detail_hourly_data_bottom_left_margin">10dp</dimen>
+    <dimen name="content_detail_hourly_data_bottom_top_margin">10dp</dimen>
+    <dimen name="content_detail_hourly_data_temperature_unit_right_margin">16dp</dimen>
+    <dimen name="content_detail_hourly_data_temperature_text_size">25sp</dimen>
+    <dimen name="content_detail_hourly_data_title_text_size">20sp</dimen>
+    <dimen name="content_detail_hourly_data_time_text_size">20sp</dimen>
+    <dimen name="content_detail_hourly_data_summary_text_size">18sp</dimen>
+
+    <dimen name="content_detail_aqi_city_aqi_text_size">50sp</dimen>
+    <dimen name="content_detail_aqi_city_top_or_bottom_margin">10dp</dimen>
+    <dimen name="content_detail_aqi_city_right_margin_big">10dp</dimen>
+    <dimen name="content_detail_aqi_city_left_or_right_margin_small">5dp</dimen>
+    <dimen name="content_detail_aqi_city_padding">3dp</dimen>
+    <dimen name="content_detail_aqi_title_left_margin">10dp</dimen>
+    <dimen name="content_detail_aqi_title_text_size">20sp</dimen>
+
+    <dimen name="content_detail_suggestion_icon_left_margin">10dp</dimen>
+    <dimen name="content_detail_suggestion_brf_prompt_left_margin">15dp</dimen>
+    <dimen name="content_detail_suggestion_txt_top_margin">5dp</dimen>
+    <dimen name="content_detail_suggestion_txt_right_margin">7dp</dimen>
+    <dimen name="content_detail_suggestion_title_text_size">20sp</dimen>
+
+    <dimen name="content_detail_dialog_daily_data_icon_width_or_height">30dp</dimen>
+    <dimen name="content_detail_dialog_daily_data_left_margin">10dp</dimen>
+    <dimen name="content_detail_dialog_daily_data_left_or_right_margin">20dp</dimen>
+
+    <dimen name="item_content_detail_now_card_left_or_right_margin">16dp</dimen>
+    <dimen name="item_content_detail_now_card_top_or_bottom_margin">8dp</dimen>
+    <dimen name="item_content_detail_now_left_or_right_margin">25dp</dimen>
+    <dimen name="item_content_detail_now_top_or_bottom_margin">10dp</dimen>
+    <dimen name="item_content_detail_now_tmp_text_size">30sp</dimen>
+    <dimen name="item_content_detail_now_icon_small">25dp</dimen>
+    <dimen name="item_content_detail_now_icon_big">56sp</dimen>
+    <dimen name="item_content_detail_now_basic_city_text_size">20sp</dimen>
+    <dimen name="item_content_detail_now_top_left_right_margin">10dp</dimen>
+
+    <dimen name="fragment_default_main_icon_width_or_height">100dp</dimen>
+    <dimen name="fragment_default_main_icon_top_margin">100dp</dimen>
+    <dimen name="fragment_default_main_no_location_text_top_margin">205dp</dimen>
+    <dimen name="fragment_default_main_no_location_text_size">20sp</dimen>
+    <dimen name="fragment_default_main_add_city_text_top_margin">235dp</dimen>
+    <dimen name="fragment_default_main_add_city_text_size">15sp</dimen>
+</resources>

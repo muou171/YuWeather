@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackground"
+        android:elevation="1dp"
+        android:paddingBottom="@dimen/card_default_top_or_bottom_padding"
+        android:paddingLeft="@dimen/card_default_left_or_right_padding"
+        android:paddingRight="@dimen/card_default_left_or_right_padding"
+        android:paddingTop="@dimen/card_default_top_or_bottom_padding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_detail_aqi_title_left_margin"
+            android:text="@string/card_aqi_title"
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/content_detail_now_title_text_size" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ContentDetailAqiBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/card_default_top_or_bottom_padding"
+        android:paddingLeft="@dimen/card_default_left_or_right_padding"
+        android:paddingRight="@dimen/card_default_left_or_right_padding"
+        android:paddingTop="@dimen/card_default_top_or_bottom_padding">
+
+        <RelativeLayout
+            android:layout_width="@dimen/null_width_height"
+            android:layout_height="wrap_content"
+            android:layout_weight="3">
+
+            <RelativeLayout
+                android:id="@+id/rl_aqi_city_qlty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_qlty_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_detail_aqi_qlty_prompt_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_qlty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_toRightOf="@id/tv_aqi_city_qlty_prompt"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_aqi_city_aqi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_aqi_city_qlty"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/content_detail_aqi_city_top_or_bottom_margin"
+                android:layout_marginTop="@dimen/content_detail_aqi_city_top_or_bottom_margin"
+                android:text="@string/content_detail_unknown"
+                android:textColor="@color/colorDark"
+                android:textSize="@dimen/content_detail_aqi_city_aqi_text_size"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/content_detail_aqi_city_right_margin_big"
+            android:layout_weight="5">
+
+            <RelativeLayout
+                android:id="@+id/rl_aqi_city_pm25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/content_detail_aqi_city_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_aqi_pm25_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_pm25_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_concentration_unit"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_pm25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:layout_toLeftOf="@id/tv_aqi_city_pm25_unit"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_aqi_city_pm10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_aqi_city_pm25"
+                android:padding="@dimen/content_detail_aqi_city_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_aqi_pm10_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_pm10_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_concentration_unit"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_pm10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:layout_toLeftOf="@id/tv_aqi_city_pm10_unit"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_aqi_city_co"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_aqi_city_pm10"
+                android:padding="@dimen/content_detail_aqi_city_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_aqi_co_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_co_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_concentration_unit"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_co"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:layout_toLeftOf="@id/tv_aqi_city_co_unit"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_aqi_city_so2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_aqi_city_co"
+                android:padding="@dimen/content_detail_aqi_city_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_aqi_so2_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_so2_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_concentration_unit"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_so2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:layout_toLeftOf="@id/tv_aqi_city_so2_unit"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_aqi_city_no2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_aqi_city_so2"
+                android:padding="@dimen/content_detail_aqi_city_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_aqi_no2_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_no2_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_concentration_unit"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_no2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:layout_toLeftOf="@id/tv_aqi_city_no2_unit"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_aqi_city_O3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_aqi_city_no2"
+                android:padding="@dimen/content_detail_aqi_city_padding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_aqi_o3_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_O3_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:text="@string/content_detail_concentration_unit"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+
+                <TextView
+                    android:id="@+id/tv_aqi_city_O3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/content_detail_aqi_city_left_or_right_margin_small"
+                    android:layout_toLeftOf="@id/tv_aqi_city_O3_unit"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_small_small" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

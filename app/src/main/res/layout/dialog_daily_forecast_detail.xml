@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_padding">
+
+        <LinearLayout
+            android:layout_width="@dimen/null_width_height"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_daily_data_sunrise_icon"
+                android:layout_width="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:layout_height="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:src="@drawable/ic_sunrise" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_sunrise_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                android:text="@string/content_detail_unknown"
+                android:textColor="@color/colorDark"
+                android:textSize="@dimen/default_text_size_big" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/null_width_height"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_daily_data_sunset_icon"
+                android:layout_width="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:layout_height="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:src="@drawable/ic_sunset" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_sunset_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                android:text="@string/content_detail_unknown"
+                android:textColor="@color/colorDark"
+                android:textSize="@dimen/default_text_size_big" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/default_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_padding">
+
+            <LinearLayout
+                android:layout_width="@dimen/null_width_height"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_min_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_detail_dialog_daily_data_temperature_min_prompt_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_min_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_detail_degree"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/null_width_height"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_min_time_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_detail_dialog_daily_data_temperature_min_time_prompt_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_min_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_padding">
+
+            <LinearLayout
+                android:layout_width="@dimen/null_width_height"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_max_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_detail_dialog_daily_data_temperature_max_prompt_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_max_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_detail_degree"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/null_width_height"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_max_time_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/content_detail_dialog_daily_data_temperature_max_time_prompt_text"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <TextView
+                    android:id="@+id/tv_daily_data_temperature_max_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_or_right_margin"
+        android:layout_marginRight="@dimen/content_detail_dialog_daily_data_left_or_right_margin"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_padding">
+
+        <RelativeLayout
+            android:layout_width="@dimen/null_width_height"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/iv_umbrella"
+                android:layout_width="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:layout_height="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:src="@drawable/ic_umbrella" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_pre_probability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                android:layout_toRightOf="@id/iv_umbrella"
+                android:text="@string/content_detail_unknown"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/default_text_size_big" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_pre_probability_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_daily_data_pre_probability"
+                android:text="@string/content_detail_percentage"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/default_text_size_big" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/null_width_height"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/iv_humidity"
+                android:layout_width="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:layout_height="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:src="@drawable/ic_humidity" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                android:layout_toRightOf="@id/iv_humidity"
+                android:text="@string/content_detail_unknown"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/default_text_size_big" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_humidity_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_daily_data_humidity"
+                android:text="@string/content_detail_percentage"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/default_text_size_big" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/null_width_height"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/iv_pressure"
+                android:layout_width="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:layout_height="@dimen/content_detail_dialog_daily_data_icon_width_or_height"
+                android:src="@drawable/ic_pressure" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/content_detail_dialog_daily_data_left_margin"
+                android:layout_toRightOf="@id/iv_pressure"
+                android:text="@string/content_detail_unknown"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/default_text_size_big" />
+
+            <TextView
+                android:id="@+id/tv_daily_data_pressure_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_daily_data_pressure"
+                android:text="@string/content_detail_millibars"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/default_text_size_big" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

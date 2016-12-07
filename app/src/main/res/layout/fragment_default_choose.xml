@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/t_default_choose_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimaryDark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/ib_choose_area_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/card_left_or_right_margin"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/default_padding"
+                android:src="@drawable/ic_location" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_choose_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+
+        <ImageButton
+            android:id="@+id/ib_choose_area_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/card_left_or_right_margin"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/default_padding"
+            android:src="@drawable/ic_search" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_choose_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/default_padding"
+        android:text="@string/manual_choose_area"
+        android:textColor="@color/colorChooseAreaActivityAccent"
+        android:textSize="@dimen/default_text_size_big" />
+</LinearLayout>

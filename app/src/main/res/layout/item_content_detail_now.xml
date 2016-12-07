@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/item_content_detail_now_card_top_or_bottom_margin"
+    android:layout_marginLeft="@dimen/item_content_detail_now_card_left_or_right_margin"
+    android:layout_marginRight="@dimen/item_content_detail_now_card_left_or_right_margin"
+    android:layout_marginTop="@dimen/item_content_detail_now_card_top_or_bottom_margin">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_item_content_detail_now"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorUnknownDark"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/item_content_detail_now_top_or_bottom_margin"
+        android:paddingLeft="@dimen/item_content_detail_now_left_or_right_margin"
+        android:paddingRight="@dimen/item_content_detail_now_left_or_right_margin"
+        android:paddingTop="@dimen/item_content_detail_now_top_or_bottom_margin">
+
+        <RelativeLayout
+            android:layout_width="@dimen/null_width_height"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/default_padding">
+
+            <TextView
+                android:id="@+id/tv_item_basic_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/content_detail_unknown"
+                android:textColor="@color/colorLight"
+                android:textSize="@dimen/item_content_detail_now_basic_city_text_size" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_basic_city"
+                android:layout_marginTop="@dimen/item_content_detail_now_top_left_right_margin">
+
+                <TextView
+                    android:id="@+id/tv_item_now_tmp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/item_content_detail_now_top_left_right_margin"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/item_content_detail_now_tmp_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_item_now_tmp_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/tv_item_now_tmp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_item_now_tmp"
+                    android:text="@string/content_detail_degree"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/item_content_detail_now_tmp_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_item_now_wind_dir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/item_content_detail_now_top_left_right_margin"
+                    android:layout_marginRight="@dimen/item_content_detail_now_top_left_right_margin"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorLight"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <ImageView
+                    android:id="@+id/iv_wind_direction"
+                    android:layout_width="@dimen/item_content_detail_now_icon_small"
+                    android:layout_height="@dimen/item_content_detail_now_icon_small"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_item_now_wind_dir"
+                    android:src="@drawable/ic_wind_direction" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:padding="@dimen/default_padding">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/item_content_detail_now_top_left_right_margin">
+
+                <TextView
+                    android:id="@+id/tv_item_basic_update_loc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorLight"
+                    android:textSize="@dimen/default_text_size_big" />
+
+                <TextView
+                    android:id="@+id/tv_item_now_cond_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_item_basic_update_loc"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/content_detail_unknown"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/default_text_size_big_big" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_item_now_cond_code"
+                android:layout_width="@dimen/item_content_detail_now_icon_big"
+                android:layout_height="@dimen/item_content_detail_now_icon_big"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/item_content_detail_now_top_left_right_margin"
+                android:src="@drawable/ic_unknown" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

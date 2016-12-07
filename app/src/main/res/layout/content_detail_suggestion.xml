@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackground"
+        android:elevation="1dp"
+        android:paddingBottom="@dimen/card_default_top_or_bottom_padding"
+        android:paddingLeft="@dimen/card_default_left_or_right_padding"
+        android:paddingRight="@dimen/card_default_left_or_right_padding"
+        android:paddingTop="@dimen/card_default_top_or_bottom_padding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_detail_suggestion_icon_left_margin"
+            android:text="@string/card_suggestion_title"
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/content_detail_suggestion_title_text_size" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/content_detail_suggestion_comf" />
+
+        <include layout="@layout/content_detail_suggestion_uv" />
+
+        <include layout="@layout/content_detail_suggestion_drsg" />
+
+        <include layout="@layout/content_detail_suggestion_flu" />
+
+        <include layout="@layout/content_detail_suggestion_trav" />
+
+        <include layout="@layout/content_detail_suggestion_sport" />
+
+        <include layout="@layout/content_detail_suggestion_cw" />
+
+    </LinearLayout>
+</LinearLayout>

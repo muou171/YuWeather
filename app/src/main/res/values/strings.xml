@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">YuWeather</string>
+
+    <string name="action_open_drawer">Open navigation drawer</string>
+    <string name="action_close_drawer">Close navigation drawer</string>
+
+    <string name="content_detail_unknown">N/A</string>
+    <string name="content_detail_degree">°</string>
+    <string name="content_detail_percentage">%</string>
+    <string name="content_detail_millibars">mb</string>
+    <string name="content_detail_millimeter">mm</string>
+    <string name="content_detail_concentration_unit">µg/m³</string>
+
+    <string name="content_detail_aqi_qlty_prompt_text">空气质量&#0160;&#0160;</string>
+    <string name="content_detail_aqi_pm25_text">PM2.5[细颗粒物]</string>
+    <string name="content_detail_aqi_pm10_text">PM10[可吸入颗粒物]</string>
+    <string name="content_detail_aqi_co_text">CO[一氧化碳]</string>
+    <string name="content_detail_aqi_so2_text">SO2[二氧化硫]</string>
+    <string name="content_detail_aqi_no2_text">NO2[二氧化氮]</string>
+    <string name="content_detail_aqi_o3_text">O3[臭氧]</string>
+
+    <string name="content_detail_suggestion_comf_txt">舒适度&#0160;-&#0160;</string>
+    <string name="content_detail_suggestion_cw_txt">洗车指数&#0160;-&#0160;</string>
+    <string name="content_detail_suggestion_drsg_txt">穿衣指数&#0160;-&#0160;</string>
+    <string name="content_detail_suggestion_flu_txt">感冒指数&#0160;-&#0160;</string>
+    <string name="content_detail_suggestion_sport_txt">运动指数&#0160;-&#0160;</string>
+    <string name="content_detail_suggestion_trav_txt">旅游指数&#0160;-&#0160;</string>
+    <string name="content_detail_suggestion_uv_txt">紫外线强度&#0160;-&#0160;</string>
+
+    <string name="network_error">需要使用Wi-Fi或移动数据连接</string>
+    <string name="reason_for_need_network">获取地点及更新数据</string>
+    <string name="manual_choose_area">手动选择城市</string>
+    <string name="search_city_error">未获取到该城市，请重新输入或者手动选择</string>
+
+    <string name="content_detail_dialog_daily_data_temperature_min_prompt_text">最低温度</string>
+    <string name="content_detail_dialog_daily_data_temperature_min_time_prompt_text">最低温度时间</string>
+    <string name="content_detail_dialog_daily_data_temperature_max_prompt_text">最高温度</string>
+    <string name="content_detail_dialog_daily_data_temperature_max_time_prompt_text">最高温度时间</string>
+
+    <string name="card_now_title">天气概况</string>
+    <string name="card_daily_title">未来七天</string>
+    <string name="card_hourly_title">当天每小时预报</string>
+    <string name="card_aqi_title">空气质量指数</string>
+    <string name="card_suggestion_title">生活指数</string>
+
+    <string name="fragment_default_main_no_location_text">尚无地点</string>
+    <string name="fragment_default_main_add_city_text">点击按钮添加地点</string>
+</resources>

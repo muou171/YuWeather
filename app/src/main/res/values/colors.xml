@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorDark">#fafafa</color>
+    <color name="colorLight">#ddfafafa</color>
+
+    <color name="colorGrayDark">#646363</color>
+    <color name="colorGrayLight">#dd646363</color>
+
+    <color name="colorPrimaryDark">#2b2b2b</color>
+    <color name="colorAccent">#000000</color>
+    <color name="windowBackground">#313335</color>
+
+    <color name="colorChooseAreaActivityPrimaryDark">#91989F</color>
+    <color name="colorChooseAreaActivityAccent">#91989F</color>
+    <color name="ChooseAreaActivityWindowBackground">#ccfafafa</color>
+
+    <color name="ContentDetailSuggestionBackground">#FA7F7F</color>
+    <color name="ContentDetailAqiBackground">#8DC6FF</color>
+
+    <color name="colorSunnyDark">#FBD157</color>
+    <color name="colorRainDark">#0C81F6</color>
+    <color name="colorSnowDark">#FEFFE4</color>
+    <color name="colorSleetDark">#4e9ff1</color>
+    <color name="colorWindDark">#af8efc</color>
+    <color name="colorFogDark">#A3DE83</color>
+    <color name="colorCloudyDark">#718CA1</color>
+    <color name="colorPartlyCloudyDark">#839eb3</color>
+    <color name="colorUnknownDark">#646363</color>
+
+    <color name="colorSunnyLight">#ffd761</color>
+    <color name="colorRainLight">#298cf2</color>
+    <color name="colorSnowLight">#fffff2</color>
+    <color name="colorSleetLight">#5fa5ed</color>
+    <color name="colorWindLight">#bda3f9</color>
+    <color name="colorFogLight">#aadd8f</color>
+    <color name="colorCloudyLight">#748898</color>
+    <color name="colorPartlyCloudyLight">#90a6b7</color>
+    <color name="colorUnknownLight">#6e6e6e</color>
+</resources>
