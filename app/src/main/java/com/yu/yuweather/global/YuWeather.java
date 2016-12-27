@@ -15,6 +15,7 @@ public class YuWeather extends Application {
 
 
     private static YuWeather instance;
+
     public static YuWeather getInstance() {
         return instance;
     }
@@ -35,6 +36,11 @@ public class YuWeather extends Application {
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
-    public void addActivity(BaseActivity activity){activityList.add(activity);}
-    public void removeActivity(BaseActivity activity){activityList.remove(activity);}
+    public void addActivity(BaseActivity activity) {
+        activityList.add(activity);
+    }
+
+    public void removeActivity(BaseActivity activity) {
+        activityList.remove(activity);
+    }
 }

@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.yu.yuweather.global.DataName;
 import com.yu.yuweather.global.YuWeather;
+import com.yu.yuweather.utils.PrefUtils;
 
 public class BaseActivity extends AppCompatActivity {
-
 
 
     @Override
@@ -20,5 +21,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         YuWeather.getInstance().removeActivity(this);
+        PrefUtils.setLong(this, DataName.LAST_TIME, System.currentTimeMillis());
     }
 }

@@ -12,9 +12,12 @@ public class DataName {
     public final static String HOURLY_FORECAST = "HourlyForecast";
 
     public final static String ACTIVITY_INTERFACE = "ActivityInterface";
-    public final static String CHOOSEAREAACTIVITY = "chooseAreaActivity";
+    public final static String CHOOSE_AREA_ACTIVITY = "chooseAreaActivity";
     public final static String CITY_MANAGEMENT_FRAGMENT = "CityManagementFragment";
     public final static String SETTING_FRAGMENT = "SettingFragment";
     public final static String MAIN_ACTIVITY = "SettingActivity";
-    public static final String POSITION = "position";
+    public final static String POSITION = "Position";
+
+    public final static String CONFIG = "Config";
+    public final static String LAST_TIME = "LastTime";
 }

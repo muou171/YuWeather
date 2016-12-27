@@ -22,6 +22,7 @@ import com.yu.yuweather.global.DataName;
 import com.yu.yuweather.models.Now;
 import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
+import com.yu.yuweather.utils.PrefUtils;
 import com.yu.yuweather.utils.UIUtils;
 import com.yu.yuweather.view.fragment.DefaultMainFragment;
 import com.yu.yuweather.view.fragment.WeatherDetailFragment;
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ImageButton ibAddCity;
     private SwipeRefreshLayout srlMainRefresh;
     private YuWeatherDB yuWeatherDB;
+    private List<Now.BasicBean> basicBeanList;
 
     private Handler handler = new Handler();
     private FragmentManager supportFragmentManager = getSupportFragmentManager();
@@ -58,6 +60,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         importDatabase();
         setContentView(R.layout.activity_main);
         initView();
+        updateData();
         initUI();
         initListener();
     }
@@ -84,7 +87,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (activityInterface.equals(DataName.CITY_MANAGEMENT_FRAGMENT)) {
                     int position = intent.getIntExtra(DataName.POSITION, 0);
                     changFragment(position);
-                } else if (activityInterface.equals(DataName.CHOOSEAREAACTIVITY)) {
+                } else if (activityInterface.equals(DataName.CHOOSE_AREA_ACTIVITY)) {
                     changFragment(yuWeatherDB.loadAllBasic().size() - 1);
                 }
             }
@@ -97,6 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         ibAddCity = (ImageButton) findViewById(R.id.ib_add_city);
         srlMainRefresh = (SwipeRefreshLayout) findViewById(R.id.srl_main_refresh);
         yuWeatherDB = YuWeatherDB.getInstance(this);
+        basicBeanList = yuWeatherDB.loadAllBasic();
     }
 
     private void initUI() {
@@ -144,7 +148,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                             @Override
                                             public void onFinish(String response) {
                                                 // 删除数据库中当前页面所保存的城市的天气信息
-                                                yuWeatherDB.deleteCity(countyId);
+                                                yuWeatherDB.deleteItemsFromBasic(countyId);
                                                 DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
                                                 handler.post(new Runnable() {
                                                     @Override
@@ -191,6 +195,53 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
             }
         });
+    }
+
+    private void updateData() {
+        long lastTime = PrefUtils.getLong(this, DataName.LAST_TIME, System.currentTimeMillis());
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastTime >= (1000 * 60)) {
+            srlMainRefresh.setRefreshing(true);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    List<String> countyIdList = new ArrayList<>();
+                    for (int i = 0; i < basicBeanList.size(); i++) {
+                        String id = basicBeanList.get(i).getId();
+                        countyIdList.add(id);
+                    }
+                    for (int i = 0; i < countyIdList.size(); i++) {
+                        final String countyId = countyIdList.get(i);
+                        final int finalI = i;
+                        HttpsUtil.sendHttpsRequest(ApiConstants.GetNowApiAddress(countyId), new HttpsUtil.HttpsCallbackListener() {
+                            @Override
+                            public void onFinish(String response) {
+                                // 删除该城市在数据库中的数据
+                                yuWeatherDB.deleteItemsFromBasic(countyId);
+                                DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
+                                // 更新Basic表的数据库中的城市排序
+                                Now.BasicBean basicBean = yuWeatherDB.loadBasic(countyId);
+                                basicBeanList.set(finalI, basicBean);
+                                yuWeatherDB.updateBasicOrder(basicBeanList);
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+                    }
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            // 不显示下拉刷新控件
+                            srlMainRefresh.setRefreshing(false);
+                            changFragment(0);
+                        }
+                    });
+                }
+            }).start();
+        }
     }
 
     private void importDatabase() {

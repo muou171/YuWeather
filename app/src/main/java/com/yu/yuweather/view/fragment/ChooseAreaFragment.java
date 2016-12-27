@@ -134,7 +134,7 @@ public class ChooseAreaFragment extends Fragment {
                                                     DataBaseUtil.saveJSONToDataBase(response, countyCode, yuWeatherDB);
                                                     // 转到天气界面
                                                     Intent intent = new Intent(getActivity(), MainActivity.class);
-                                                    intent.putExtra(DataName.ACTIVITY_INTERFACE, DataName.CHOOSEAREAACTIVITY);
+                                                    intent.putExtra(DataName.ACTIVITY_INTERFACE, DataName.CHOOSE_AREA_ACTIVITY);
                                                     startActivity(intent);
                                                     getActivity().finish();
                                                 }
