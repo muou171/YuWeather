@@ -439,6 +439,60 @@ public class YuWeatherDB {
     }
 
     /**
+     * 根据城市ID，从Basic表删除对应的数据
+     */
+    public void deleteItemsFromBasic(String id) {
+        if (!TextUtils.isEmpty(id)) {
+            db.delete(DataName.BASIC, "_id = ?", new String[]{id});
+        }
+    }
+
+    /**
+     * 根据城市ID，从Aqi表删除对应的数据
+     */
+    public void deleteItemsFromAqi(String id) {
+        if (!TextUtils.isEmpty(id)) {
+            db.delete(DataName.AQI, "_id = ?", new String[]{id});
+        }
+    }
+
+    /**
+     * 根据城市ID，从Suggestion表删除对应的数据
+     */
+    public void deleteItemsFromSuggestion(String id) {
+        if (!TextUtils.isEmpty(id)) {
+            db.delete(DataName.SUGGESTION, "_id = ?", new String[]{id});
+        }
+    }
+
+    /**
+     * 根据城市ID，从Now表删除对应的数据
+     */
+    public void deleteItemsFromNow(String id) {
+        if (!TextUtils.isEmpty(id)) {
+            db.delete(DataName.NOW, "_id = ?", new String[]{id});
+        }
+    }
+
+    /**
+     * 根据城市ID，从DailyForecast表删除对应的数据
+     */
+    public void deleteItemsFromDailyForecast(String id) {
+        if (!TextUtils.isEmpty(id)) {
+            db.delete(DataName.DAILY_FORECAST, "_id = ?", new String[]{id});
+        }
+    }
+
+    /**
+     * 根据城市ID，从HourlyForecast表删除对应的数据
+     */
+    public void deleteItemsFromHourlyForecast(String id) {
+        if (!TextUtils.isEmpty(id)) {
+            db.delete(DataName.HOURLY_FORECAST, "_id = ?", new String[]{id});
+        }
+    }
+
+    /**
      * 从数据库返回数据库存在的城市的数目
      */
     public int getCityCount() {

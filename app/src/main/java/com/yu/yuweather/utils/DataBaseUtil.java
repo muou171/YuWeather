@@ -7,6 +7,7 @@ import com.yu.yuweather.models.Now;
 public class DataBaseUtil {
     public static void saveJSONToDataBase(String response, final String countyId, final YuWeatherDB yuWeatherDB) {
         // 保存NowJSON数据到数据库
+        yuWeatherDB.deleteItemsFromNow(countyId);
         JSONUtils.NowJSONSaveToDataBase(response, yuWeatherDB);
         Now.BasicBean basicBean = yuWeatherDB.loadBasic(countyId);
         String lat = basicBean.getLat();
@@ -15,6 +16,7 @@ public class DataBaseUtil {
             @Override
             public void onFinish(String response) {
                 // 保存AqiJSON数据到数据库
+                yuWeatherDB.deleteItemsFromAqi(countyId);
                 JSONUtils.AqiJSONSaveToDataBase(response, countyId, yuWeatherDB);
             }
 
@@ -27,6 +29,7 @@ public class DataBaseUtil {
             @Override
             public void onFinish(String response) {
                 // 保存SuggestionJSON数据到数据库
+                yuWeatherDB.deleteItemsFromSuggestion(countyId);
                 JSONUtils.SuggestionJSONSaveToDataBase(response, countyId, yuWeatherDB);
             }
 
@@ -39,6 +42,7 @@ public class DataBaseUtil {
             @Override
             public void onFinish(String response) {
                 // 保存DailyForecastJSON数据到数据库
+                yuWeatherDB.deleteItemsFromDailyForecast(countyId);
                 JSONUtils.DailyForecastJSONSaveToDataBase(response, countyId, yuWeatherDB);
             }
 
@@ -51,6 +55,7 @@ public class DataBaseUtil {
             @Override
             public void onFinish(String response) {
                 // 保存HourlyForecastJSON数据到数据库
+                yuWeatherDB.deleteItemsFromHourlyForecast(countyId);
                 JSONUtils.HourlyForecastJSONSaveToDataBase(response, countyId, yuWeatherDB);
             }
 

@@ -1,6 +1,8 @@
 package com.yu.yuweather.global;
 
 import android.app.Application;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 
 import com.yu.yuweather.view.activity.BaseActivity;
 
@@ -26,6 +28,11 @@ public class YuWeather extends Application {
     private void initialize() {
         instance = this;
         activityList = new ArrayList<>();
+        // 设置默认字体配置
+        Resources resources = getResources();
+        Configuration configuration = new Configuration();
+        configuration.setToDefaults();
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
     public void addActivity(BaseActivity activity){activityList.add(activity);}

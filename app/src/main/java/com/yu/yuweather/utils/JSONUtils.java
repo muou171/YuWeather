@@ -11,6 +11,8 @@ import com.yu.yuweather.models.Suggestion;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class JSONUtils {
@@ -27,6 +29,7 @@ public class JSONUtils {
             // 保存到数据库
             Now.BasicBean basicBean = now.getBasic();
             String id = basicBean.getId();
+            basicBean.getUpdate().setLoc(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date(System.currentTimeMillis())));
             yuWeatherDB.saveBasicBean(basicBean);
             Now.NowBean nowBean = now.getNow();
             yuWeatherDB.saveNowBean(nowBean, id);

@@ -17,7 +17,7 @@
     <color name="ContentDetailSuggestionBackground">#FA7F7F</color>
     <color name="ContentDetailAqiBackground">#8DC6FF</color>
 
-    <color name="colorSunnyDark">#FBD157</color>
+    <color name="colorSunnyDark">#fb9357</color>
     <color name="colorRainDark">#0C81F6</color>
     <color name="colorSnowDark">#FEFFE4</color>
     <color name="colorSleetDark">#4e9ff1</color>
@@ -27,7 +27,7 @@
     <color name="colorPartlyCloudyDark">#839eb3</color>
     <color name="colorUnknownDark">#646363</color>
 
-    <color name="colorSunnyLight">#ffd761</color>
+    <color name="colorSunnyLight">#fb8e4e</color>
     <color name="colorRainLight">#298cf2</color>
     <color name="colorSnowLight">#fffff2</color>
     <color name="colorSleetLight">#5fa5ed</color>

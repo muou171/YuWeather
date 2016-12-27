@@ -148,7 +148,7 @@ public class CityManagementFragment extends Fragment implements View.OnClickList
                                 @Override
                                 public void onFinish(String response) {
                                     // 删除该城市在数据库中的数据
-                                    yuWeatherDB.deleteCity(countyId);
+                                    yuWeatherDB.deleteItemsFromBasic(countyId);
                                     DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
                                     // 更新Basic表的数据库中的城市排序
                                     Now.BasicBean basicBean = yuWeatherDB.loadBasic(countyId);
