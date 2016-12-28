@@ -22,6 +22,7 @@ import com.yu.yuweather.itemtouch.CustomizeItemTouchHelperCallback;
 import com.yu.yuweather.models.Now;
 import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
+import com.yu.yuweather.utils.PrefUtils;
 import com.yu.yuweather.view.activity.ChooseAreaActivity;
 import com.yu.yuweather.view.activity.CityManagementAndSettingActivity;
 import com.yu.yuweather.view.activity.MainActivity;
@@ -106,6 +107,11 @@ public class CityManagementFragment extends Fragment implements View.OnClickList
                 yuWeatherDB.deleteCity(id);
                 // 从数据源中删除
                 basicBeanList.remove(adapterPosition);
+                // 判断保存的最后的城市与要删除的城市是否相同
+                int lastPosition = PrefUtils.getInt(getContext(), DataName.LAST_POSITION, 0);
+                if (lastPosition == adapterPosition) {
+                    PrefUtils.setInt(getContext(), DataName.LAST_POSITION, 0);
+                }
                 cityManagementAdapter.notifyItemRemoved(adapterPosition);
             }
 
@@ -115,6 +121,11 @@ public class CityManagementFragment extends Fragment implements View.OnClickList
                 Collections.swap(basicBeanList, srcPosition, targetPosition);
                 // 更新Basic数据库中两个城市的先后顺序
                 yuWeatherDB.updateBasicOrder(basicBeanList);
+                // 判断保存的最后的城市与要移动的城市是否相同
+                int lastPosition = PrefUtils.getInt(getContext(), DataName.LAST_POSITION, 0);
+                if (lastPosition == srcPosition) {
+                    PrefUtils.setInt(getContext(), DataName.LAST_POSITION, targetPosition);
+                }
                 cityManagementAdapter.notifyItemMoved(srcPosition, targetPosition);
                 return false;
             }
@@ -170,6 +181,8 @@ public class CityManagementFragment extends Fragment implements View.OnClickList
                                 cityManagementAdapter.updateBasicBeanList(basicBeanList);
                                 cityManagementAdapter.notifyDataSetChanged();
                                 srlCityManagement.setRefreshing(false);
+                                // 保存更新数据的时间
+                                PrefUtils.setLong(getContext(), DataName.LAST_TIME, System.currentTimeMillis());
                             }
                         });
                     }

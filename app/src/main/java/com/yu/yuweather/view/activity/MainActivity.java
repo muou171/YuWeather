@@ -79,13 +79,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             ibAddCity.setVisibility(View.GONE);
             // 启用下拉刷新控件
             srlMainRefresh.setEnabled(true);
+            int lastPosition = PrefUtils.getInt(this, DataName.LAST_POSITION, 0);
             Intent intent = this.getIntent();
             String activityInterface = intent.getStringExtra(DataName.ACTIVITY_INTERFACE);
             if (TextUtils.isEmpty(activityInterface)) {
-                changFragment(0);
+                changFragment(lastPosition);
             } else {
                 if (activityInterface.equals(DataName.CITY_MANAGEMENT_FRAGMENT)) {
-                    int position = intent.getIntExtra(DataName.POSITION, 0);
+                    int position = intent.getIntExtra(DataName.POSITION, lastPosition);
                     changFragment(position);
                 } else if (activityInterface.equals(DataName.CHOOSE_AREA_ACTIVITY)) {
                     changFragment(yuWeatherDB.loadAllBasic().size() - 1);
@@ -168,6 +169,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                                         weatherDetailFragmentList.get(position).UpdateData();
                                                         // 不显示下拉刷新的控件
                                                         srlMainRefresh.setRefreshing(false);
+                                                        // 保存更新数据的时间
+                                                        PrefUtils.setLong(MainActivity.this, DataName.LAST_TIME, System.currentTimeMillis());
                                                     }
                                                 });
                                             }
@@ -197,10 +200,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         });
     }
 
+    /**
+     * 60分钟后未获取新的数据，自动获取新的数据
+     */
     private void updateData() {
         long lastTime = PrefUtils.getLong(this, DataName.LAST_TIME, System.currentTimeMillis());
         long currentTime = System.currentTimeMillis();
-        if (currentTime - lastTime >= (1000 * 60)) {
+        if (currentTime - lastTime >= (1000 * 60 * 60)) {
             srlMainRefresh.setRefreshing(true);
             new Thread(new Runnable() {
                 @Override
@@ -236,7 +242,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         public void run() {
                             // 不显示下拉刷新控件
                             srlMainRefresh.setRefreshing(false);
-                            changFragment(0);
+                            // 保存更新数据的时间
+                            PrefUtils.setLong(MainActivity.this, DataName.LAST_TIME, System.currentTimeMillis());
+                            int lastPosition = PrefUtils.getInt(MainActivity.this, DataName.LAST_POSITION, 0);
+                            changFragment(lastPosition);
                         }
                     });
                 }

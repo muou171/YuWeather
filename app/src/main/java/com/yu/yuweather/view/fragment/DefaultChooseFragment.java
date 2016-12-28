@@ -34,6 +34,7 @@ import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
 import com.yu.yuweather.utils.LocationUtils;
 import com.yu.yuweather.utils.NetworkUtil;
+import com.yu.yuweather.utils.PrefUtils;
 import com.yu.yuweather.utils.UIUtils;
 import com.yu.yuweather.view.activity.BaseActivity;
 import com.yu.yuweather.view.activity.ChooseAreaActivity;
@@ -281,6 +282,8 @@ public class DefaultChooseFragment extends Fragment implements View.OnClickListe
                             });
                             // 保存JSON数据到数据库
                             DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
+                            // 保存更新数据的时间
+                            PrefUtils.setLong(getContext(), DataName.LAST_TIME, System.currentTimeMillis());
                             // 转到天气界面
                             Intent intent = new Intent(getActivity(), MainActivity.class);
                             intent.putExtra(DataName.ACTIVITY_INTERFACE, DataName.CHOOSE_AREA_ACTIVITY);

@@ -15,4 +15,14 @@ public class PrefUtils {
         SharedPreferences sharedPreferences = context.getSharedPreferences(DataName.CONFIG, Context.MODE_PRIVATE);
         sharedPreferences.edit().putLong(key, value).commit();
     }
+
+    public static int getInt(Context context, String key, int defValue) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(DataName.CONFIG, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(key, defValue);
+    }
+
+    public static void setInt(Context context, String key, int value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(DataName.CONFIG, Context.MODE_PRIVATE);
+        sharedPreferences.edit().putInt(key, value).commit();
+    }
 }

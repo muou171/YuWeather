@@ -13,6 +13,7 @@ import com.yu.yuweather.R;
 import com.yu.yuweather.db.YuWeatherDB;
 import com.yu.yuweather.global.DataName;
 import com.yu.yuweather.models.Now;
+import com.yu.yuweather.utils.PrefUtils;
 import com.yu.yuweather.view.activity.BaseActivity;
 import com.yu.yuweather.view.activity.MainActivity;
 import com.yu.yuweather.view.adapter.WeatherDetailAdapter;
@@ -84,6 +85,7 @@ public class WeatherFragment extends Fragment {
 
             @Override
             public void onPageSelected(final int position) {
+                PrefUtils.setInt(getContext(), DataName.LAST_POSITION, position);
                 tWeatherToolbar.setTitle(basicBeanList.get(position).getCity());
             }
 
