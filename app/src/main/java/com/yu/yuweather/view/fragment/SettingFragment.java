@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yu.yuweather.global.DataName;
 import com.yu.yuweather.view.activity.CityManagementAndSettingActivity;
 import com.yu.yuweather.view.activity.MainActivity;
 
@@ -24,7 +25,9 @@ public class SettingFragment extends Fragment {
         ((CityManagementAndSettingActivity) getActivity()).setOnCityManagementAndSettingActivityBackPressedListener(new CityManagementAndSettingActivity.OnCityManagementAndSettingActivityBackPressedListener() {
             @Override
             public void setBackPressed() {
-                startActivity(new Intent(getActivity(), MainActivity.class));
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.putExtra(DataName.WIDGET_DAY_COUNTY_ID, "");
+                startActivity(intent);
                 getActivity().finish();
             }
         });

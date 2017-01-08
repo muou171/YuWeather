@@ -95,7 +95,9 @@ public class CityManagementFragment extends Fragment implements View.OnClickList
         ((CityManagementAndSettingActivity) getActivity()).setOnCityManagementAndSettingActivityBackPressedListener(new CityManagementAndSettingActivity.OnCityManagementAndSettingActivityBackPressedListener() {
             @Override
             public void setBackPressed() {
-                startActivity(new Intent(getActivity(), MainActivity.class));
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.putExtra(DataName.WIDGET_DAY_COUNTY_ID, "");
+                startActivity(intent);
                 getActivity().finish();
             }
         });

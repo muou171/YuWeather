@@ -509,4 +509,53 @@ public class YuWeatherDB {
             saveBasicBean(basicBeanList.get(i));
         }
     }
+
+    /**
+     * 保存WidgetDay中appWidgetId与countyId的对应关系
+     */
+    public void saveWidgetDay(int appWidgetId, String countyId) {
+        if (appWidgetId != 0 && !TextUtils.isEmpty(countyId)) {
+            ContentValues values = new ContentValues();
+            values.put("appWidgetId", String.valueOf(appWidgetId));
+            values.put("_id", countyId);
+            db.insert(DataName.WIDGET_DAY, null, values);
+        }
+    }
+
+    /**
+     * 通过appWidgetId获取CountyId
+     */
+    public String getCountyIdInWidgetDay(int appWidgetId) {
+        String countyId = null;
+        if (appWidgetId != 0) {
+            Cursor cursor = db.query(DataName.WIDGET_DAY, null, "appWidgetId = ?", new String[]{String.valueOf(appWidgetId)}, null, null, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    countyId = cursor.getString(cursor.getColumnIndex("_id"));
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+        return countyId;
+    }
+
+    /**
+     * 根据appWidgetId数组，从WidgetDay表删除对应的数据
+     */
+    public void deleteItemsFromWidgetDay(int[] appWidgetIds) {
+        if (appWidgetIds.length > 0) {
+            for (int i = 0; i < appWidgetIds.length; i++) {
+                db.delete(DataName.WIDGET_DAY, "appWidgetId = ?", new String[]{String.valueOf(appWidgetIds[i])});
+            }
+        }
+    }
+
+    public void updateItemFromWidgetDay(int appWidgetId, String countyId) {
+        if (appWidgetId != 0 && !TextUtils.isEmpty(countyId)) {
+            ContentValues values = new ContentValues();
+            values.put("appWidgetId", String.valueOf(appWidgetId));
+            values.put("_id", countyId);
+            db.update(DataName.WIDGET_DAY, values, "appWidgetId = ?", new String[]{String.valueOf(appWidgetId)});
+        }
+    }
 }

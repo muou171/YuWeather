@@ -43,4 +43,10 @@ public class YuWeather extends Application {
     public void removeActivity(BaseActivity activity) {
         activityList.remove(activity);
     }
+
+    public void finishAllActivity(){
+        for (BaseActivity baseActivity : activityList) {
+            baseActivity.finish();
+        }
+    }
 }

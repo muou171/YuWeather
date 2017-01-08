@@ -84,6 +84,13 @@ public class YuWeatherOpenHelper extends SQLiteOpenHelper {
             + "humidity TEXT, "
             + "pressure TEXT)";
 
+    /**
+     * WidgetDay的CountyId与appWidgetId对应表建表语句
+     */
+    private static final String CREATE_WIDGET_DAY = "CREATE TABLE " + DataName.WIDGET_DAY + " ("
+            + "appWidgetId TEXT PRIMARY KEY, "
+            + "_id TEXT)";
+
     public YuWeatherOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -101,5 +108,6 @@ public class YuWeatherOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_NOW);// 创建实况天气表
         sqLiteDatabase.execSQL(CREATE_DAILY_FORECAST);// 创建每日天气预报表
         sqLiteDatabase.execSQL(CREATE_HOURLY_FORECAST);// 创建每小时天气预报表
+        sqLiteDatabase.execSQL(CREATE_WIDGET_DAY);
     }
 }

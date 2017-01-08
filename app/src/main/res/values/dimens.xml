@@ -3,7 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="default_text_size_small_small">12sp</dimen>
+    <dimen name="default_text_size_small_small">10sp</dimen>
     <dimen name="default_text_size_small">14sp</dimen>
     <dimen name="default_text_size_big">16sp</dimen>
     <dimen name="default_text_size_big_big">18sp</dimen>
@@ -95,4 +95,17 @@
     <dimen name="fragment_default_main_no_location_text_size">20sp</dimen>
     <dimen name="fragment_default_main_add_city_text_top_margin">235dp</dimen>
     <dimen name="fragment_default_main_add_city_text_size">15sp</dimen>
+
+    <dimen name="widget_day_icon_width_or_height">25dp</dimen>
+    <dimen name="widget_day_left_margin">5dp</dimen>
+    <dimen name="widget_day_bottom_text_size">12sp</dimen>
+    <dimen name="widget_day_now_tmp_text_size">38sp</dimen>
+    <dimen name="widget_day_now_cond_icon_width_or_height">56dp</dimen>
+    <dimen name="widget_day_top_padding">15dp</dimen>
+    <dimen name="widget_day_top_icon_width_or_height">16dp</dimen>
+    <dimen name="widget_day_top_top_margin">5dp</dimen>
+    <dimen name="widget_day_now_cond_padding">14dp</dimen>
+    <dimen name="widget_day_icon_right_margin">24dp</dimen>
+    <dimen name="widget_day_top_text_size_big">22sp</dimen>
+    <dimen name="widget_day_top_text_size_small">16sp</dimen>
 </resources>

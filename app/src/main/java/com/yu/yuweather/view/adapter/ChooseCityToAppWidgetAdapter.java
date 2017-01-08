@@ -17,7 +17,7 @@ import com.yu.yuweather.utils.IconUtils;
 
 import java.util.List;
 
-public class CityManagementAdapter extends RecyclerView.Adapter<CityManagementAdapter.CityManagementViewHolder> {
+public class ChooseCityToAppWidgetAdapter extends RecyclerView.Adapter<ChooseCityToAppWidgetAdapter.ChooseCityToAppWidgetViewHolder> {
 
     private List<Now.BasicBean> basicBeanList;
     private YuWeatherDB yuWeatherDB;
@@ -25,28 +25,24 @@ public class CityManagementAdapter extends RecyclerView.Adapter<CityManagementAd
 
     private OnItemClickListener onItemClickListener;
 
-    public void updateBasicBeanList(List<Now.BasicBean> basicBeanList) {
-        this.basicBeanList = basicBeanList;
-    }
-
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
-    public CityManagementAdapter(List<Now.BasicBean> basicBeanList, YuWeatherDB yuWeatherDB, Activity activity) {
+    public ChooseCityToAppWidgetAdapter(List<Now.BasicBean> basicBeanList, YuWeatherDB yuWeatherDB, Activity activity) {
         this.basicBeanList = basicBeanList;
         this.yuWeatherDB = yuWeatherDB;
         this.activity = activity;
     }
 
     @Override
-    public CityManagementViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CityManagementViewHolder cityManagementViewHolder = new CityManagementViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_content_detail_now, parent, false));
-        return cityManagementViewHolder;
+    public ChooseCityToAppWidgetViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ChooseCityToAppWidgetViewHolder chooseCityToAppWidgetViewHolder = new ChooseCityToAppWidgetViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_content_detail_now, parent, false));
+        return chooseCityToAppWidgetViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(CityManagementViewHolder holder, int position) {
+    public void onBindViewHolder(ChooseCityToAppWidgetViewHolder holder, int position) {
         holder.setData(position);
     }
 
@@ -55,7 +51,7 @@ public class CityManagementAdapter extends RecyclerView.Adapter<CityManagementAd
         return basicBeanList == null ? 0 : basicBeanList.size();
     }
 
-    class CityManagementViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ChooseCityToAppWidgetViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView tvItemBasicCity;
         private TextView tvItemNowTmp;
@@ -67,7 +63,7 @@ public class CityManagementAdapter extends RecyclerView.Adapter<CityManagementAd
         private ImageView ivItemNowCondCode;
         private LinearLayout llItemContentDetailNow;
 
-        public CityManagementViewHolder(View itemView) {
+        public ChooseCityToAppWidgetViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             tvItemBasicCity = (TextView) itemView.findViewById(R.id.tv_item_basic_city);

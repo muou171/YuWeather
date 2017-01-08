@@ -45,4 +45,6 @@
 
     <string name="fragment_default_main_no_location_text">尚无地点</string>
     <string name="fragment_default_main_add_city_text">点击按钮添加地点</string>
+
+    <string name="widget_day">当日</string>
 </resources>

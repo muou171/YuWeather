@@ -1,7 +1,6 @@
 package com.yu.yuweather.view.fragment;
 
 import android.content.IntentFilter;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -202,18 +201,18 @@ public class WeatherDetailFragment extends Fragment {
         if (nowBean != null) {
             String code = nowBean.getCond().getCode();
             if (code.equals("400") || code.equals("401") || code.equals("402") || code.equals("403") || code.equals("407")) {
-                tvBasicUpdateLoc.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
-                tvNowCondTxt.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                tvNowTmpUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                tvNowTmp.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
+                tvBasicUpdateLoc.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
+                tvNowCondTxt.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                tvNowTmpUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                tvNowTmp.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
                 ivUmbrella.setImageResource(R.drawable.ic_umbrella_gray);
-                tvNowPcpn.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
-                tvNowPcpnUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                tvNowPcpn.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
+                tvNowPcpnUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
                 ivHumidity.setImageResource(R.drawable.ic_humidity_gray);
-                tvNowHum.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
-                tvNowHumUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                tvNowHum.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
+                tvNowHumUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
                 ivWindDirection.setImageResource(R.drawable.ic_wind_direction_gray);
-                tvNowWindDir.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                tvNowWindDir.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
             }
             ivNowCondCode.setImageResource(IconUtils.GetCondIconResourcesId(code));
             tvBasicUpdateLoc.setText(basicBean.getUpdate().getLoc());
@@ -271,12 +270,12 @@ public class WeatherDetailFragment extends Fragment {
 
                 String icon = dataBean.getIcon();
                 if (icon.equals("snow")) {
-                    tvDailyDataTime.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvDailyDataTemperatureMaxUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvDailyDataTemperatureMax.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvDailyDataTemperatureMin.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvDailyDataTemperatureMinUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvDailyDataSummary.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                    tvDailyDataTime.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvDailyDataTemperatureMaxUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvDailyDataTemperatureMax.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvDailyDataTemperatureMin.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvDailyDataTemperatureMinUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvDailyDataSummary.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
                 }
                 ivDailyDataIcon.setImageResource(IconUtils.GetForecastIconResourcesId(icon));
                 tvDailyDataTemperatureMax.setText(dataBean.getTemperatureMax());
@@ -321,19 +320,19 @@ public class WeatherDetailFragment extends Fragment {
 
                 String icon = dataBean.getIcon();
                 if (icon.equals("snow")) {
-                    tvHourlyDataTemperatureUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvHourlyDataTemperature.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvHourlyDataTime.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayDark));
-                    tvHourlyDataSummary.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                    tvHourlyDataTemperatureUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvHourlyDataTemperature.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvHourlyDataTime.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayDark));
+                    tvHourlyDataSummary.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
                     ivUmbrella.setImageResource(R.drawable.ic_umbrella_gray);
-                    tvHourlyDataPreProbability.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
-                    tvHourlyDataPreProbabilityUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                    tvHourlyDataPreProbability.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
+                    tvHourlyDataPreProbabilityUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
                     ivHumidity.setImageResource(R.drawable.ic_humidity_gray);
-                    tvHourlyDataHumidity.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
-                    tvHourlyDataHumidityUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                    tvHourlyDataHumidity.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
+                    tvHourlyDataHumidityUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
                     ivPressure.setImageResource(R.drawable.ic_pressure_gray);
-                    tvHourlyDataPressure.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
-                    tvHourlyDataPressureUnit.setTextColor(ColorUtils.GetResourceColor(getActivity(), R.color.colorGrayLight));
+                    tvHourlyDataPressure.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
+                    tvHourlyDataPressureUnit.setTextColor(ColorUtils.GetResourceColorStateList(getActivity(), R.color.colorGrayLight));
                 }
                 tvHourlyDataPreProbability.setText(dataBean.getPrecipProbability());
                 tvHourlyDataHumidity.setText(dataBean.getHumidity());

@@ -10,6 +10,7 @@ public class DataName {
     public static final String NOW = "Now";
     public static final String DAILY_FORECAST = "DailyForecast";
     public static final String HOURLY_FORECAST = "HourlyForecast";
+    public static final String WIDGET_DAY = "WidgetDay";
 
     public static final String ACTIVITY_INTERFACE = "ActivityInterface";
     public static final String CHOOSE_AREA_ACTIVITY = "chooseAreaActivity";
@@ -21,4 +22,7 @@ public class DataName {
     public static final String CONFIG = "Config";
     public static final String LAST_TIME = "LastTime";
     public static final String LAST_POSITION = "LastPosition";
+
+    public static final String WIDGET_DAY_APP_WIDGET_ID ="WidgetDayAppWidgetId";
+    public static final String WIDGET_DAY_COUNTY_ID ="WidgetDayCountyId";
 }

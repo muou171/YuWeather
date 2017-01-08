@@ -100,7 +100,7 @@
                 android:layout_toRightOf="@id/iv_umbrella"
                 android:text="@string/content_detail_unknown"
                 android:textColor="@color/colorLight"
-                android:textSize="@dimen/default_text_size_big" />
+                android:textSize="@dimen/default_text_size_small" />
 
             <TextView
                 android:id="@+id/tv_hourly_data_pre_probability_unit"
@@ -110,7 +110,7 @@
                 android:layout_toRightOf="@id/tv_hourly_data_pre_probability"
                 android:text="@string/content_detail_percentage"
                 android:textColor="@color/colorLight"
-                android:textSize="@dimen/default_text_size_big" />
+                android:textSize="@dimen/default_text_size_small" />
 
         </RelativeLayout>
 
@@ -135,7 +135,7 @@
                 android:layout_toRightOf="@id/iv_humidity"
                 android:text="@string/content_detail_unknown"
                 android:textColor="@color/colorLight"
-                android:textSize="@dimen/default_text_size_big" />
+                android:textSize="@dimen/default_text_size_small" />
 
             <TextView
                 android:id="@+id/tv_hourly_data_humidity_unit"
@@ -145,7 +145,7 @@
                 android:layout_toRightOf="@id/tv_hourly_data_humidity"
                 android:text="@string/content_detail_percentage"
                 android:textColor="@color/colorLight"
-                android:textSize="@dimen/default_text_size_big" />
+                android:textSize="@dimen/default_text_size_small" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -169,7 +169,7 @@
                 android:layout_toRightOf="@id/iv_pressure"
                 android:text="@string/content_detail_unknown"
                 android:textColor="@color/colorLight"
-                android:textSize="@dimen/default_text_size_big" />
+                android:textSize="@dimen/default_text_size_small" />
 
             <TextView
                 android:id="@+id/tv_hourly_data_pressure_unit"
@@ -179,7 +179,7 @@
                 android:layout_toRightOf="@id/tv_hourly_data_pressure"
                 android:text="@string/content_detail_millibars"
                 android:textColor="@color/colorLight"
-                android:textSize="@dimen/default_text_size_big" />
+                android:textSize="@dimen/default_text_size_small" />
         </RelativeLayout>
     </LinearLayout>
 

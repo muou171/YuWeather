@@ -83,6 +83,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Intent intent = this.getIntent();
             String activityInterface = intent.getStringExtra(DataName.ACTIVITY_INTERFACE);
             if (TextUtils.isEmpty(activityInterface)) {
+                String widgetDayCountyId = intent.getExtras().getString(DataName.WIDGET_DAY_COUNTY_ID);
+                if (!TextUtils.isEmpty(widgetDayCountyId)) {
+                    for (int i = 0; i < basicBeanList.size(); i++) {
+                        if (widgetDayCountyId.equals(basicBeanList.get(i).getId())) {
+                            lastPosition = i;
+                            break;
+                        }
+                    }
+                }
                 changFragment(lastPosition);
             } else {
                 if (activityInterface.equals(DataName.CITY_MANAGEMENT_FRAGMENT)) {
@@ -290,6 +299,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void changFragment(int position) {
+        PrefUtils.setInt(this, DataName.LAST_POSITION, position);
         FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         Bundle bundle = new Bundle();
         bundle.putInt(DataName.POSITION, position);
