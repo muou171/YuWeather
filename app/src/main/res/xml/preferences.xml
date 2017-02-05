@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/setting_forecast_title">
+        <CheckBoxPreference
+            android:key="@string/key_forecast_time"
+            android:summaryOff="@string/off"
+            android:summaryOn="@string/on"
+            android:title="@string/setting_forecast_time_title" />
+
+        <Preference
+            android:key="@string/key_set_forecast_time"
+            android:title="@string/setting_set_forecast_time_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/setting_notification_title">
+        <CheckBoxPreference
+            android:key="@string/key_notification"
+            android:summaryOff="@string/off"
+            android:summaryOn="@string/on"
+            android:title="@string/setting_open_notification" />
+
+        <CheckBoxPreference
+            android:key="@string/key_notification_can_cleared"
+            android:summaryOff="@string/setting_notification_can_cleared_off"
+            android:summaryOn="@string/setting_notification_can_cleared_on"
+            android:title="@string/setting_notification_can_cleared_title" />
+
+        <CheckBoxPreference
+            android:key="@string/key_notification_hide_icon"
+            android:summaryOff="@string/setting_notification_hide_icon_off"
+            android:summaryOn="@string/setting_notification_hide_icon_on"
+            android:title="@string/setting_notification_hide_icon_title" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

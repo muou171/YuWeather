@@ -83,7 +83,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Intent intent = this.getIntent();
             String activityInterface = intent.getStringExtra(DataName.ACTIVITY_INTERFACE);
             if (TextUtils.isEmpty(activityInterface)) {
-                String widgetDayCountyId = intent.getExtras().getString(DataName.WIDGET_DAY_COUNTY_ID);
+                String widgetDayCountyId = intent.getStringExtra(DataName.WIDGET_DAY_COUNTY_ID);
                 if (!TextUtils.isEmpty(widgetDayCountyId)) {
                     for (int i = 0; i < basicBeanList.size(); i++) {
                         if (widgetDayCountyId.equals(basicBeanList.get(i).getId())) {

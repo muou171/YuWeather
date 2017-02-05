@@ -26,12 +26,22 @@
         </activity>
         <activity
             android:name=".view.activity.ChooseAreaActivity"
-            android:theme="@style/ChooseAreaTheme" />
-        <activity android:name=".view.activity.CityManagementAndSettingActivity" />
+            android:theme="@style/ChooseAreaAndSettingTheme" />
+        <activity
+            android:name=".view.activity.CityManagementAndSettingActivity"
+            android:theme="@style/ChooseAreaAndSettingTheme" />
         <activity android:name=".view.activity.widget.ChooseCityToWidgetDayActivity" />
 
         <!-- service -->
-        <service android:name=".service.widget.WidgetDayService" />
+        <service
+            android:name=".service.widget.WidgetDayService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".service.notification.FirstForecastService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".service.notification.ForecastService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <!-- receiver -->
         <receiver android:name=".receiver.NetworkConnectChangedReceiver" />

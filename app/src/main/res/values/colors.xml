@@ -10,9 +10,7 @@
     <color name="colorAccent">#000000</color>
     <color name="windowBackground">#313335</color>
 
-    <color name="colorChooseAreaActivityPrimaryDark">#91989F</color>
-    <color name="colorChooseAreaActivityAccent">#91989F</color>
-    <color name="ChooseAreaActivityWindowBackground">#ccfafafa</color>
+    <color name="ChooseAreaAndSettingActivityWindowBackground">#ccfafafa</color>
 
     <color name="ContentDetailSuggestionBackground">#FA7F7F</color>
     <color name="ContentDetailAqiBackground">#8DC6FF</color>

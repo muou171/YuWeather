@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.yu.yuweather.R;
 import com.yu.yuweather.models.DailyForecast;
 
+
 public class UIUtils {
 
     /**
@@ -145,4 +146,5 @@ public class UIUtils {
         dialog.getWindow().setAttributes(params);
         dialog.show();
     }
+
 }

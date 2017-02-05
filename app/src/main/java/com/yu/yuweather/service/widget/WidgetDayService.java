@@ -1,12 +1,11 @@
 package com.yu.yuweather.service.widget;
 
 import android.app.PendingIntent;
-import android.app.Service;
+import android.app.job.JobParameters;
+import android.app.job.JobService;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 
@@ -21,17 +20,32 @@ import com.yu.yuweather.utils.IconUtils;
 import com.yu.yuweather.view.activity.MainActivity;
 import com.yu.yuweather.view.activity.widget.ChooseCityToWidgetDayActivity;
 
-public class WidgetDayService extends Service {
+public class WidgetDayService extends JobService {
+
+    public static final int SCHEDULE_CODE = 11;
 
     private YuWeatherDB yuWeatherDB;
     private Now.BasicBean basicBean;
     private Now.NowBean nowBean;
     private Aqi.AqiBean aqiBean;
+    private int currentAppWidgetId = -1;
+    private String currentCountyId;
 
-    @Nullable
     @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+    public boolean onStartJob(JobParameters jobParameters) {
+        if (currentAppWidgetId >= 0 && !currentCountyId.isEmpty()) {
+            Intent intent = new Intent("android.intent.action.WIDGET_DAY_REFRESH_DATA");
+            intent.putExtra(DataName.WIDGET_DAY_APP_WIDGET_ID, currentAppWidgetId);
+            intent.putExtra(DataName.WIDGET_DAY_COUNTY_ID, currentCountyId);
+            sendBroadcast(intent);
+            jobFinished(jobParameters, false);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onStopJob(JobParameters jobParameters) {
+        return false;
     }
 
     @Override
@@ -46,11 +60,6 @@ public class WidgetDayService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
     private void updateAppWidget() {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
         ComponentName componentName = new ComponentName(this, WidgetDayProvider.class);
@@ -59,6 +68,8 @@ public class WidgetDayService extends Service {
             RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.widget_day);
             String countyId = yuWeatherDB.getCountyIdInWidgetDay(appWidgetId);
             if (!TextUtils.isEmpty(countyId)) {
+                currentAppWidgetId = appWidgetId;
+                currentCountyId = countyId;
                 updateData(remoteViews, countyId);
                 clickToMainActivity(remoteViews, appWidgetId, countyId);
                 refreshData(remoteViews, appWidgetId, countyId);

@@ -10,10 +10,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ChooseAreaTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimaryDark">@color/colorChooseAreaActivityPrimaryDark</item>
-        <item name="colorAccent">@color/colorChooseAreaActivityAccent</item>
-        <item name="android:windowBackground">@color/ChooseAreaActivityWindowBackground</item>
+    <style name="ChooseAreaAndSettingTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/ChooseAreaAndSettingActivityWindowBackground</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

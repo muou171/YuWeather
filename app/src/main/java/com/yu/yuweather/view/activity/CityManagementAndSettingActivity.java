@@ -2,7 +2,6 @@ package com.yu.yuweather.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -48,23 +47,23 @@ public class CityManagementAndSettingActivity extends BaseActivity {
             public void onClick(View view) {
                 startActivity(new Intent(CityManagementAndSettingActivity.this, MainActivity.class));
                 finish();
+                if (onCityManagementAndSettingActivityBackPressedListener != null) {
+                    onCityManagementAndSettingActivityBackPressedListener.setBackPressed();
+                }
             }
         });
     }
 
     private void changCityManagementFragment() {
         tCityManagementAndSettingToolbar.setTitle("城市管理");
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fl_city_management_and_setting, new CityManagementFragment());
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.fl_city_management_and_setting, new CityManagementFragment()).commit();
     }
 
     private void changSettingFragment() {
         tCityManagementAndSettingToolbar.setTitle("设置");
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fl_city_management_and_setting, new SettingFragment());
-        fragmentTransaction.commit();
-
+        getFragmentManager().beginTransaction().
+                replace(R.id.fl_city_management_and_setting, new SettingFragment()).commit();
     }
 
     @Override
