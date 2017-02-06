@@ -7,7 +7,6 @@
     <color name="colorGrayLight">#dd646363</color>
 
     <color name="colorPrimaryDark">#2b2b2b</color>
-    <color name="colorAccent">#000000</color>
     <color name="windowBackground">#313335</color>
 
     <color name="ChooseAreaAndSettingActivityWindowBackground">#ccfafafa</color>

@@ -1,8 +1,11 @@
 package com.yu.yuweather.view.activity;
 
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -19,9 +22,11 @@ import com.yu.yuweather.R;
 import com.yu.yuweather.db.YuWeatherDB;
 import com.yu.yuweather.global.ApiConstants;
 import com.yu.yuweather.global.DataName;
+import com.yu.yuweather.global.YuWeather;
 import com.yu.yuweather.models.Now;
 import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
+import com.yu.yuweather.utils.NotificationUtils;
 import com.yu.yuweather.utils.PrefUtils;
 import com.yu.yuweather.utils.UIUtils;
 import com.yu.yuweather.view.fragment.DefaultMainFragment;
@@ -55,6 +60,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        YuWeather.getInstance().finishAllActivity();
+        initService();
         super.onCreate(savedInstanceState);
         // 导入数据库
         importDatabase();
@@ -63,6 +70,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         updateData();
         initUI();
         initListener();
+    }
+
+    private void initService() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (sharedPreferences.getBoolean(getString(R.string.key_forecast_time), false)) {
+            NotificationUtils.stopFirstForecastService(this);
+            NotificationUtils.stopForecastService(this);
+            NotificationUtils.startFirstForecastService(this);
+        }
     }
 
     @Override
@@ -83,6 +99,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             Intent intent = this.getIntent();
             String activityInterface = intent.getStringExtra(DataName.ACTIVITY_INTERFACE);
             if (TextUtils.isEmpty(activityInterface)) {
+                changFragment(0);
+            } else if (activityInterface.equals(DataName.CITY_MANAGEMENT_FRAGMENT)) {
+                int position = intent.getIntExtra(DataName.POSITION, lastPosition);
+                changFragment(position);
+            } else if (activityInterface.equals(DataName.CHOOSE_AREA_ACTIVITY)) {
+                changFragment(yuWeatherDB.loadAllBasic().size() - 1);
+            } else if (activityInterface.equals(DataName.FORECAST_NOTIFICATION)) {
+                changFragment(0);
+            } else if (activityInterface.equals(DataName.DAY_WIDGET)) {
                 String widgetDayCountyId = intent.getStringExtra(DataName.WIDGET_DAY_COUNTY_ID);
                 if (!TextUtils.isEmpty(widgetDayCountyId)) {
                     for (int i = 0; i < basicBeanList.size(); i++) {
@@ -93,13 +118,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     }
                 }
                 changFragment(lastPosition);
-            } else {
-                if (activityInterface.equals(DataName.CITY_MANAGEMENT_FRAGMENT)) {
-                    int position = intent.getIntExtra(DataName.POSITION, lastPosition);
-                    changFragment(position);
-                } else if (activityInterface.equals(DataName.CHOOSE_AREA_ACTIVITY)) {
-                    changFragment(yuWeatherDB.loadAllBasic().size() - 1);
-                }
             }
         }
     }

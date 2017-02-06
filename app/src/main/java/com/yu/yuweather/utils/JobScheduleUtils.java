@@ -35,7 +35,7 @@ public class JobScheduleUtils {
     public static void scheduleForecastMission(Context context, Class cls, int scheduleCode) {
         ((JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE)).schedule(
                 new JobInfo.Builder(scheduleCode, new ComponentName(context.getPackageName(), cls.getName()))
-                        .setPeriodic((long) (24 * 60 * 60 * 1000))
+                        .setPeriodic((long) (20 * 1000))
                         .build());
     }
 

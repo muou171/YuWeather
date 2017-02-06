@@ -130,4 +130,110 @@ public class IconUtils {
             return R.drawable.ic_unknown;
         }
     }
+
+    public static int GetCondIconGrayResourcesId(String nowCondCode) {
+        if (nowCondCode.equals("100")) {
+            return R.drawable.ic_sunny_gray;
+        } else if (nowCondCode.equals("101")) {
+            return R.drawable.ic_cloudy_gray;
+        } else if (nowCondCode.equals("102")) {
+            return R.drawable.ic_few_clouds_gray;
+        } else if (nowCondCode.equals("103")) {
+            return R.drawable.ic_partly_cloudy_gray;
+        } else if (nowCondCode.equals("104")) {
+            return R.drawable.ic_overcast_gray;
+        } else if (nowCondCode.equals("200")) {
+            return R.drawable.ic_windy_gray;
+        } else if (nowCondCode.equals("201")) {
+            return R.drawable.ic_windy_gray;
+        } else if (nowCondCode.equals("202")) {
+            return R.drawable.ic_windy_gray;
+        } else if (nowCondCode.equals("203")) {
+            return R.drawable.ic_windy_gray;
+        } else if (nowCondCode.equals("204")) {
+            return R.drawable.ic_windy_gray;
+        } else if (nowCondCode.equals("205")) {
+            return R.drawable.ic_strong_breeze_gray;
+        } else if (nowCondCode.equals("206")) {
+            return R.drawable.ic_strong_breeze_gray;
+        } else if (nowCondCode.equals("207")) {
+            return R.drawable.ic_strong_breeze_gray;
+        } else if (nowCondCode.equals("208")) {
+            return R.drawable.ic_strong_gale_gray;
+        } else if (nowCondCode.equals("209")) {
+            return R.drawable.ic_strong_gale_gray;
+        } else if (nowCondCode.equals("210")) {
+            return R.drawable.ic_strong_gale_gray;
+        } else if (nowCondCode.equals("211")) {
+            return R.drawable.ic_strong_gale_gray;
+        } else if (nowCondCode.equals("212")) {
+            return R.drawable.ic_strong_gale_gray;
+        } else if (nowCondCode.equals("213")) {
+            return R.drawable.ic_strong_gale_gray;
+        } else if (nowCondCode.equals("300")) {
+            return R.drawable.ic_shower_rain_gray;
+        } else if (nowCondCode.equals("301")) {
+            return R.drawable.ic_shower_rain_gray;
+        } else if (nowCondCode.equals("302")) {
+            return R.drawable.ic_thundershower_gray;
+        } else if (nowCondCode.equals("303")) {
+            return R.drawable.ic_thundershower_gray;
+        } else if (nowCondCode.equals("304")) {
+            return R.drawable.ic_hail_gray;
+        } else if (nowCondCode.equals("305")) {
+            return R.drawable.ic_light_rain_gray;
+        } else if (nowCondCode.equals("306")) {
+            return R.drawable.ic_moderate_rain_gray;
+        } else if (nowCondCode.equals("307")) {
+            return R.drawable.ic_heavy_rain_gray;
+        } else if (nowCondCode.equals("308")) {
+            return R.drawable.ic_heavy_rain_gray;
+        } else if (nowCondCode.equals("309")) {
+            return R.drawable.ic_light_rain_gray;
+        } else if (nowCondCode.equals("310")) {
+            return R.drawable.ic_heavy_rain_gray;
+        } else if (nowCondCode.equals("311")) {
+            return R.drawable.ic_heavy_rain_gray;
+        } else if (nowCondCode.equals("312")) {
+            return R.drawable.ic_heavy_rain_gray;
+        } else if (nowCondCode.equals("313")) {
+            return R.drawable.ic_hail_gray;
+        } else if (nowCondCode.equals("400")) {
+            return R.drawable.ic_light_snow_gray;
+        } else if (nowCondCode.equals("401")) {
+            return R.drawable.ic_moderate_snow_gray;
+        } else if (nowCondCode.equals("402")) {
+            return R.drawable.ic_heavy_snow_gray;
+        } else if (nowCondCode.equals("403")) {
+            return R.drawable.ic_heavy_snow_gray;
+        } else if (nowCondCode.equals("404")) {
+            return R.drawable.ic_sleet_gray;
+        } else if (nowCondCode.equals("405")) {
+            return R.drawable.ic_sleet_gray;
+        } else if (nowCondCode.equals("406")) {
+            return R.drawable.ic_sleet_gray;
+        } else if (nowCondCode.equals("407")) {
+            return R.drawable.ic_light_snow_gray;
+        } else if (nowCondCode.equals("500")) {
+            return R.drawable.ic_mist_gray;
+        } else if (nowCondCode.equals("501")) {
+            return R.drawable.ic_foggy_gray;
+        } else if (nowCondCode.equals("502")) {
+            return R.drawable.ic_haze_gray;
+        } else if (nowCondCode.equals("503")) {
+            return R.drawable.ic_sand_gray;
+        } else if (nowCondCode.equals("504")) {
+            return R.drawable.ic_dust_gray;
+        } else if (nowCondCode.equals("507")) {
+            return R.drawable.ic_duststorm_gray;
+        } else if (nowCondCode.equals("508")) {
+            return R.drawable.ic_sandstorm_gray;
+        } else if (nowCondCode.equals("900")) {
+            return R.drawable.ic_hot_gray;
+        } else if (nowCondCode.equals("901")) {
+            return R.drawable.ic_cold_gray;
+        } else {
+            return R.drawable.ic_unknown_gray;
+        }
+    }
 }

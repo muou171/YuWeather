@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/content_detail_forecast_left_margin"
             android:text="@string/card_daily_title"
+            android:padding="@dimen/default_padding"
             android:textColor="@color/colorLight"
             android:textSize="@dimen/content_detail_daily_data_title_text_size" />
 
@@ -45,9 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/content_detail_forecast_left_margin"
-            android:layout_marginTop="@dimen/content_detail_forecast_top_margin"
             android:text="@string/card_hourly_title"
             android:textColor="@color/colorLight"
+            android:padding="@dimen/default_padding"
             android:textSize="@dimen/content_detail_hourly_data_title_text_size" />
     </RelativeLayout>
 

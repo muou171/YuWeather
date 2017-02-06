@@ -17,6 +17,8 @@ public class DataName {
     public static final String CITY_MANAGEMENT_FRAGMENT = "CityManagementFragment";
     public static final String SETTING_FRAGMENT = "SettingFragment";
     public static final String MAIN_ACTIVITY = "SettingActivity";
+    public static final String DAY_WIDGET = "DayWidget";
+    public static final String FORECAST_NOTIFICATION = "forecastNotification";
     public static final String POSITION = "Position";
 
     public static final String CONFIG = "Config";

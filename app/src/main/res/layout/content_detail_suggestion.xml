@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/content_detail_suggestion_icon_left_margin"
+            android:padding="@dimen/default_padding"
             android:text="@string/card_suggestion_title"
             android:textColor="@color/colorLight"
             android:textSize="@dimen/content_detail_suggestion_title_text_size" />

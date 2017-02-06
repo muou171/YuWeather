@@ -1,6 +1,8 @@
 package com.yu.yuweather.view.fragment;
 
+import android.app.NotificationManager;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -81,6 +83,8 @@ public class SettingFragment extends PreferenceFragment {
                 // 关闭每日预报的通知
                 NotificationUtils.stopFirstForecastService(getActivity());
                 NotificationUtils.stopForecastService(getActivity());
+                ((NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE))
+                        .cancel(NotificationUtils.FORECAST_ID);
             }
             return true;
         } else if (preference.getKey().equals(getString(R.string.key_set_forecast_time))) {

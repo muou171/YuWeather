@@ -40,7 +40,6 @@
     <dimen name="content_detail_now_tmp_text_size">40sp</dimen>
 
     <dimen name="content_detail_forecast_left_margin">10dp</dimen>
-    <dimen name="content_detail_forecast_top_margin">20dp</dimen>
 
     <dimen name="content_detail_daily_data_icon_width_or_height">35dp</dimen>
     <dimen name="content_detail_daily_left_or_right_margin">15dp</dimen>
@@ -108,4 +107,11 @@
     <dimen name="widget_day_icon_right_margin">24dp</dimen>
     <dimen name="widget_day_top_text_size_big">22sp</dimen>
     <dimen name="widget_day_top_text_size_small">16sp</dimen>
+
+    <dimen name="notification_forecast_icon_width_or_height">45dp</dimen>
+    <dimen name="notification_forecast_margin_left_or_right">25dp</dimen>
+    <dimen name="notification_forecast_now_cond_txt_margin_left">15dp</dimen>
+    <dimen name="notification_forecast_cond_txt_text_size">18sp</dimen>
+    <dimen name="notification_forecast_basic_city_and_basic_loc_text_size">14sp</dimen>
+    <dimen name="notification_forecast_now_tmp_text_size">24sp</dimen>
 </resources>

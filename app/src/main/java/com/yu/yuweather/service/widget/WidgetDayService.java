@@ -129,6 +129,7 @@ public class WidgetDayService extends JobService {
 
     private void clickToMainActivity(RemoteViews remoteViews, int appWidgetId, String countyId) {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(DataName.ACTIVITY_INTERFACE, DataName.DAY_WIDGET);
         intent.putExtra(DataName.WIDGET_DAY_COUNTY_ID, countyId);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, appWidgetId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         remoteViews.setOnClickPendingIntent(R.id.rl_widget_day, pendingIntent);
