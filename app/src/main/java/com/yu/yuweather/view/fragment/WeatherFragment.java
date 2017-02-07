@@ -57,7 +57,9 @@ public class WeatherFragment extends Fragment {
         basicBeanList = yuWeatherDB.loadAllBasic();
         for (int i = 0; i < basicBeanList.size(); i++) {
             Now.BasicBean basicBean = basicBeanList.get(i);
-            weatherDetailFragmentList.add(new WeatherDetailFragment(basicBean));
+            WeatherDetailFragment weatherDetailFragment = new WeatherDetailFragment();
+            weatherDetailFragment.setBasicBean(basicBean);
+            weatherDetailFragmentList.add(weatherDetailFragment);
         }
     }
 

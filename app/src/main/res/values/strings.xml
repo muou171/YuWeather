@@ -53,6 +53,10 @@
 
     <string name="setting_forecast_title">预报</string>
     <string name="key_forecast_time">key_forecast_time</string>
+    <string name="setting_choose_forecast_city">预报城市</string>
+    <string name="setting_choose_forecast_city_summary">选择预报城市</string>
+    <string name="setting_choose_forecast_city_summary_in_null">请添加至少一个城市</string>
+    <string name="key_choose_forecast_city">key_choose_forecast_city</string>
     <string name="setting_forecast_time_title">定时预报(今日天气)</string>
     <string name="setting_set_forecast_time_title">设定预报时间</string>
     <string name="key_set_forecast_time">key_set_forecast_time</string>

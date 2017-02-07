@@ -1,6 +1,5 @@
 package com.yu.yuweather.view.activity;
 
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,6 +27,7 @@ import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
 import com.yu.yuweather.utils.NotificationUtils;
 import com.yu.yuweather.utils.PrefUtils;
+import com.yu.yuweather.utils.ServiceUtils;
 import com.yu.yuweather.utils.UIUtils;
 import com.yu.yuweather.view.fragment.DefaultMainFragment;
 import com.yu.yuweather.view.fragment.WeatherDetailFragment;
@@ -67,12 +67,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         importDatabase();
         setContentView(R.layout.activity_main);
         initView();
-        updateData();
+        updateAllData();
         initUI();
         initListener();
     }
 
     private void initService() {
+        // 开启定时更新数据的服务
+        ServiceUtils.stopUpdateDataRegularlyService(this);
+        ServiceUtils.startUpdateDataRegularlyService(this);
+
+        // 判断是否开启预报的服务
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         if (sharedPreferences.getBoolean(getString(R.string.key_forecast_time), false)) {
             NotificationUtils.stopFirstForecastService(this);
@@ -106,7 +111,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             } else if (activityInterface.equals(DataName.CHOOSE_AREA_ACTIVITY)) {
                 changFragment(yuWeatherDB.loadAllBasic().size() - 1);
             } else if (activityInterface.equals(DataName.FORECAST_NOTIFICATION)) {
-                changFragment(0);
+                int index = intent.getIntExtra(DataName.FORECAST_CITY_INDEX, lastPosition);
+                changFragment(index);
             } else if (activityInterface.equals(DataName.DAY_WIDGET)) {
                 String widgetDayCountyId = intent.getStringExtra(DataName.WIDGET_DAY_COUNTY_ID);
                 if (!TextUtils.isEmpty(widgetDayCountyId)) {
@@ -228,9 +234,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     /**
-     * 60分钟后未获取新的数据，自动获取新的数据
+     * 60分钟后未打开过应用，自动获取新的数据
      */
-    private void updateData() {
+    private void updateAllData() {
         long lastTime = PrefUtils.getLong(this, DataName.LAST_TIME, System.currentTimeMillis());
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastTime >= (1000 * 60 * 60)) {

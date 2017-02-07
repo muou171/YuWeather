@@ -2,10 +2,13 @@ package com.yu.yuweather.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
+import com.yu.yuweather.R;
 import com.yu.yuweather.global.DataName;
 import com.yu.yuweather.models.Aqi;
 import com.yu.yuweather.models.City;
@@ -427,7 +430,7 @@ public class YuWeatherDB {
     /**
      * 从数据库中删除不需要的城市，相应的也得从其它表中删除该城市的数据
      */
-    public void deleteCity(String id) {
+    public void deleteCity(Context context, String id) {
         if (!TextUtils.isEmpty(id)) {
             db.delete(DataName.BASIC, "_id = ?", new String[]{id});
             db.delete(DataName.AQI, "_id = ?", new String[]{id});
@@ -435,6 +438,16 @@ public class YuWeatherDB {
             db.delete(DataName.NOW, "_id = ?", new String[]{id});
             db.delete(DataName.DAILY_FORECAST, "_id = ?", new String[]{id});
             db.delete(DataName.HOURLY_FORECAST, "_id = ?", new String[]{id});
+            List<Now.BasicBean> basicBeanList = loadAllBasic();
+            if (basicBeanList.size() > 0) {
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+                String countyId = sharedPreferences.getString(
+                        context.getString(R.string.key_choose_forecast_city), basicBeanList.get(0).getId());
+                if (countyId.equals(id)) {
+                    sharedPreferences.edit().putString(
+                            context.getString(R.string.key_choose_forecast_city), basicBeanList.get(0).getId()).apply();
+                }
+            }
         }
     }
 

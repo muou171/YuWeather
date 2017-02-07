@@ -101,7 +101,7 @@ public class WeatherDetailFragment extends Fragment {
     private YuWeatherDB yuWeatherDB;
     private NetworkConnectChangedReceiver networkConnectChangedReceiver;
 
-    public WeatherDetailFragment(Now.BasicBean basicBean) {
+    public void setBasicBean(Now.BasicBean basicBean) {
         this.basicBean = basicBean;
     }
 

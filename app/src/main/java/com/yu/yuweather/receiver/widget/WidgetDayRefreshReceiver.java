@@ -68,7 +68,7 @@ public class WidgetDayRefreshReceiver extends BroadcastReceiver {
                         // 更新Widget界面
                         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
                         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_day);
-                        updateData(context,remoteViews,countyId);
+                        updateData(context, remoteViews, countyId);
                         appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
                     }
 

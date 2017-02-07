@@ -5,6 +5,7 @@ import com.yu.yuweather.global.ApiConstants;
 import com.yu.yuweather.models.Now;
 
 public class DataBaseUtil {
+
     public static void saveJSONToDataBase(String response, final String countyId, final YuWeatherDB yuWeatherDB) {
         // 保存NowJSON数据到数据库
         yuWeatherDB.deleteItemsFromNow(countyId);

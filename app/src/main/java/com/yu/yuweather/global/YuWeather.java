@@ -36,6 +36,8 @@ public class YuWeather extends Application {
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
+
+
     public void addActivity(BaseActivity activity) {
         activityList.add(activity);
     }

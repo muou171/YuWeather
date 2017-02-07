@@ -1,3 +1,3 @@
 # YuWeather
-Weather Graduation Project
-Only supports Android5.0+
+* Weather Graduation Project
+* Only supports Android5.0+

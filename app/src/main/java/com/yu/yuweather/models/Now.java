@@ -104,6 +104,15 @@ public class Now {
                 this.loc = loc;
             }
         }
+
+        public boolean basicBeanEquals(BasicBean basicBean) {
+            boolean result = false;
+            if (city.equals(basicBean.getCity()) && id.equals(basicBean.getId())
+                    && lat.equals(basicBean.getLat()) && lon.equals(basicBean.getLon())) {
+                result = true;
+            }
+            return result;
+        }
     }
 
     public static class NowBean {

@@ -106,7 +106,7 @@ public class CityManagementFragment extends Fragment implements View.OnClickList
             public void onSwiped(int adapterPosition) {
                 // 从数据库中删除该城市
                 String id = yuWeatherDB.loadAllBasic().get(adapterPosition).getId();
-                yuWeatherDB.deleteCity(id);
+                yuWeatherDB.deleteCity(getActivity(), id);
                 // 从数据源中删除
                 basicBeanList.remove(adapterPosition);
                 // 判断保存的最后的城市与要删除的城市是否相同
