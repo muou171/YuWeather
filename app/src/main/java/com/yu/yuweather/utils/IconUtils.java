@@ -109,28 +109,6 @@ public class IconUtils {
         }
     }
 
-    public static int GetForecastIconResourcesId(String icon) {
-        if (icon.contains("clear")) {
-            return R.drawable.ic_sunny;
-        } else if (icon.contains("rain")) {
-            return R.drawable.ic_heavy_rain;
-        } else if (icon.contains("snow")) {
-            return R.drawable.ic_heavy_snow;
-        } else if (icon.contains("sleet")) {
-            return R.drawable.ic_sleet;
-        } else if (icon.contains("wind")) {
-            return R.drawable.ic_windy;
-        } else if (icon.contains("fog")) {
-            return R.drawable.ic_foggy;
-        } else if (icon.contains("cloudy")) {
-            return R.drawable.ic_cloudy;
-        } else if (icon.contains("partly-cloudy")) {
-            return R.drawable.ic_partly_cloudy;
-        } else {
-            return R.drawable.ic_unknown;
-        }
-    }
-
     public static int GetCondIconGrayResourcesId(String nowCondCode) {
         if (nowCondCode.equals("100")) {
             return R.drawable.ic_sunny_gray;
@@ -232,6 +210,50 @@ public class IconUtils {
             return R.drawable.ic_hot_gray;
         } else if (nowCondCode.equals("901")) {
             return R.drawable.ic_cold_gray;
+        } else {
+            return R.drawable.ic_unknown_gray;
+        }
+    }
+
+    public static int GetForecastIconResourcesId(String icon) {
+        if (icon.contains("clear")) {
+            return R.drawable.ic_sunny;
+        } else if (icon.contains("rain")) {
+            return R.drawable.ic_heavy_rain;
+        } else if (icon.contains("snow")) {
+            return R.drawable.ic_heavy_snow;
+        } else if (icon.contains("sleet")) {
+            return R.drawable.ic_sleet;
+        } else if (icon.contains("wind")) {
+            return R.drawable.ic_windy;
+        } else if (icon.contains("fog")) {
+            return R.drawable.ic_foggy;
+        } else if (icon.contains("cloudy")) {
+            return R.drawable.ic_cloudy;
+        } else if (icon.contains("partly-cloudy")) {
+            return R.drawable.ic_partly_cloudy;
+        } else {
+            return R.drawable.ic_unknown;
+        }
+    }
+
+    public static int GetForecastIconGrayResourcesId(String icon) {
+        if (icon.contains("clear")) {
+            return R.drawable.ic_sunny_gray;
+        } else if (icon.contains("rain")) {
+            return R.drawable.ic_heavy_rain_gray;
+        } else if (icon.contains("snow")) {
+            return R.drawable.ic_heavy_snow_gray;
+        } else if (icon.contains("sleet")) {
+            return R.drawable.ic_sleet_gray;
+        } else if (icon.contains("wind")) {
+            return R.drawable.ic_windy_gray;
+        } else if (icon.contains("fog")) {
+            return R.drawable.ic_foggy_gray;
+        } else if (icon.contains("cloudy")) {
+            return R.drawable.ic_cloudy_gray;
+        } else if (icon.contains("partly-cloudy")) {
+            return R.drawable.ic_partly_cloudy_gray;
         } else {
             return R.drawable.ic_unknown_gray;
         }

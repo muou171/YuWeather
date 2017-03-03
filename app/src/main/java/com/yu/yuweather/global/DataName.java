@@ -19,6 +19,7 @@ public class DataName {
     public static final String MAIN_ACTIVITY = "SettingActivity";
     public static final String DAY_WIDGET = "DayWidget";
     public static final String FORECAST_NOTIFICATION = "forecastNotification";
+    public static final String NOTIFICATION_NOTIFICATION = "NotificationNotification";
     public static final String POSITION = "Position";
 
     public static final String CONFIG = "Config";
@@ -29,4 +30,5 @@ public class DataName {
     public static final String WIDGET_DAY_COUNTY_ID = "WidgetDayCountyId";
 
     public static final String FORECAST_CITY_INDEX = "ForecastCityIndex";
+    public static final String NOTIFICATION_CITY_INDEX = "NotificationCityIndex";
 }

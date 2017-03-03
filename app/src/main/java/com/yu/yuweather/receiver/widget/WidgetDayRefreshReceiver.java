@@ -17,7 +17,6 @@ import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
 import com.yu.yuweather.utils.IconUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WidgetDayRefreshReceiver extends BroadcastReceiver {
@@ -41,30 +40,8 @@ public class WidgetDayRefreshReceiver extends BroadcastReceiver {
                 HttpsUtil.sendHttpsRequest(ApiConstants.GetNowApiAddress(countyId), new HttpsUtil.HttpsCallbackListener() {
                     @Override
                     public void onFinish(String response) {
-                        // 获取当前城市在Basic表的位置
-                        int position = 0;
-                        for (int i = 0; i < basicBeanList.size(); i++) {
-                            position = i;
-                            if (countyId.equals(basicBeanList.get(i).getId())) {
-                                break;
-                            }
-                        }
-                        // 删除数据库中当前页面所保存的城市的天气信息
-                        yuWeatherDB.deleteItemsFromBasic(countyId);
-                        // 保存新数据
-                        DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
-                        // 更新Basic表中的城市顺序
-                        if (position < basicBeanList.size() - 1) {
-                            List<Now.BasicBean> currentBasicBeanList = yuWeatherDB.loadAllBasic();
-                            List<Now.BasicBean> updateBasicBeanList = new ArrayList<>();
-                            for (int i = 0; i < currentBasicBeanList.size() - 1; i++) {
-                                if (i == position) {
-                                    updateBasicBeanList.add(currentBasicBeanList.get(currentBasicBeanList.size() - 1));
-                                }
-                                updateBasicBeanList.add(currentBasicBeanList.get(i));
-                            }
-                            yuWeatherDB.updateBasicOrder(updateBasicBeanList);
-                        }
+                        // 保存JSON数据到数据库
+                        DataBaseUtil.saveJSONToDataBase(false, response, countyId, yuWeatherDB);
                         // 更新Widget界面
                         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
                         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_day);

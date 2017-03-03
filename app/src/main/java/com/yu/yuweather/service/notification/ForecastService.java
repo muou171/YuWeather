@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.NotificationCompat;
+import android.text.TextUtils;
 import android.widget.RemoteViews;
 
 import com.yu.yuweather.R;
@@ -20,15 +21,14 @@ import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
 import com.yu.yuweather.utils.IconUtils;
 import com.yu.yuweather.utils.NotificationUtils;
-import com.yu.yuweather.utils.PrefUtils;
 import com.yu.yuweather.view.activity.MainActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ForecastService extends JobService {
 
-    public static final int SCHEDULE_CODE = 13;
+    public static final int SCHEDULE_CODE = 12;
+    public static final int REQUEST_CODE = 112;
     private YuWeatherDB yuWeatherDB;
     private String countyId;
     private int index;
@@ -51,8 +51,24 @@ public class ForecastService extends JobService {
     }
 
     @Override
+    public void onStart(Intent intent, int startId) {
+        super.onStart(intent, startId);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ForecastService.this);
+        List<Now.BasicBean> basicBeanList = yuWeatherDB.loadAllBasic();
+        countyId = sharedPreferences.getString(getString(R.string.key_choose_forecast_city), basicBeanList.get(0).getId());
+        Now.BasicBean forecastBasicBean = yuWeatherDB.loadBasic(countyId);
+        index = -1;
+        for (Now.BasicBean basicBean : basicBeanList) {
+            index++;
+            if (forecastBasicBean.basicBeanEquals(basicBean)) {
+                break;
+            }
+        }
+    }
+
+    @Override
     public boolean onStartJob(JobParameters jobParameters) {
-        if (!countyId.isEmpty()) {
+        if (!TextUtils.isEmpty(countyId)) {
             updateData(jobParameters);
         }
         return true;
@@ -71,23 +87,8 @@ public class ForecastService extends JobService {
                 HttpsUtil.sendHttpsRequest(ApiConstants.GetNowApiAddress(countyId), new HttpsUtil.HttpsCallbackListener() {
                     @Override
                     public void onFinish(String response) {
-                        // 删除数据库中当前页面所保存的城市的天气信息
-                        yuWeatherDB.deleteItemsFromBasic(countyId);
-                        DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
-                        // 更新Basic表中的城市顺序
-                        List<Now.BasicBean> currentBasicBeanList = yuWeatherDB.loadAllBasic();
-                        List<Now.BasicBean> updateBasicBeanList = new ArrayList<>();
-                        if (currentBasicBeanList.size() > 1) {
-                            for (int i = 0; i < currentBasicBeanList.size() - 1; i++) {
-                                if (i == index) {
-                                    updateBasicBeanList.add(currentBasicBeanList.get(currentBasicBeanList.size() - 1));
-                                }
-                                updateBasicBeanList.add(currentBasicBeanList.get(i));
-                            }
-                            yuWeatherDB.updateBasicOrder(updateBasicBeanList);
-                            // 保存更新数据的时间
-                            PrefUtils.setLong(ForecastService.this, DataName.LAST_TIME, System.currentTimeMillis());
-                        }
+                        // 保存JSON数据到数据库
+                        DataBaseUtil.saveJSONToDataBase(false, response, countyId, yuWeatherDB);
                         // 预报通知
                         notifyForecast(currentJobParameters);
                     }
@@ -103,9 +104,9 @@ public class ForecastService extends JobService {
 
     private void notifyForecast(JobParameters currentJobParameters) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(ForecastService.this);
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notification_forecast);
+
         Now.BasicBean basicBean = yuWeatherDB.loadBasic(countyId);
         Now.NowBean nowBean = yuWeatherDB.loadNow(countyId);
         remoteViews.setImageViewResource(R.id.iv_notification_forecast_icon, IconUtils.GetCondIconGrayResourcesId(nowBean.getCond().getCode()));
@@ -114,10 +115,11 @@ public class ForecastService extends JobService {
         remoteViews.setTextViewText(R.id.tv_notification_forecast_basic_update_loc, basicBean.getUpdate().getLoc());
         remoteViews.setTextViewText(R.id.tv_notification_forecast_now_tmp, nowBean.getTmp());
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(ForecastService.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(DataName.ACTIVITY_INTERFACE, DataName.FORECAST_NOTIFICATION);
         intent.putExtra(DataName.FORECAST_CITY_INDEX, index);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(ForecastService.this, REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         builder.setContent(remoteViews)
                 .setContentIntent(pendingIntent)
@@ -126,5 +128,9 @@ public class ForecastService extends JobService {
                 .setDefaults(Notification.DEFAULT_VIBRATE);
         notificationManager.notify(NotificationUtils.FORECAST_ID, builder.build());
         jobFinished(currentJobParameters, false);
+        // 重新开启服务
+        NotificationUtils.startForecastService(ForecastService.this);
     }
+
+
 }

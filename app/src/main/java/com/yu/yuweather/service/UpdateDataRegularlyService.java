@@ -51,17 +51,11 @@ public class UpdateDataRegularlyService extends JobService {
                 }
                 for (int i = 0; i < countyIdList.size(); i++) {
                     final String countyId = countyIdList.get(i);
-                    final int finalI = i;
                     HttpsUtil.sendHttpsRequest(ApiConstants.GetNowApiAddress(countyId), new HttpsUtil.HttpsCallbackListener() {
                         @Override
                         public void onFinish(String response) {
-                            // 删除该城市在数据库中的数据
-                            yuWeatherDB.deleteItemsFromBasic(countyId);
-                            DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
-                            // 更新Basic表的数据库中的城市排序
-                            Now.BasicBean basicBean = yuWeatherDB.loadBasic(countyId);
-                            basicBeanList.set(finalI, basicBean);
-                            yuWeatherDB.updateBasicOrder(basicBeanList);
+                            // 保存JSON数据到数据库
+                            DataBaseUtil.saveJSONToDataBase(false, response, countyId, yuWeatherDB);
                         }
 
                         @Override

@@ -281,7 +281,7 @@ public class DefaultChooseFragment extends Fragment implements View.OnClickListe
                                 }
                             });
                             // 保存JSON数据到数据库
-                            DataBaseUtil.saveJSONToDataBase(response, countyId, yuWeatherDB);
+                            DataBaseUtil.saveJSONToDataBase(true, response, countyId, yuWeatherDB);
                             // 保存更新数据的时间
                             PrefUtils.setLong(getContext(), DataName.LAST_TIME, System.currentTimeMillis());
                             // 转到天气界面

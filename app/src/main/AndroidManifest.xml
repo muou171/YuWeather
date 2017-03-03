@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".global.YuWeather"
@@ -40,10 +41,10 @@
             android:name=".service.widget.WidgetDayService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".service.notification.FirstForecastService"
+            android:name=".service.notification.ForecastService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".service.notification.ForecastService"
+            android:name=".service.notification.NotificationService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <!-- receiver -->
@@ -51,6 +52,11 @@
         <receiver android:name=".receiver.widget.WidgetDayRefreshReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.WIDGET_DAY_REFRESH_DATA" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 

@@ -132,7 +132,7 @@ public class ChooseAreaFragment extends Fragment {
                                                         }
                                                     });
                                                     // 保存JSON数据到数据库
-                                                    DataBaseUtil.saveJSONToDataBase(response, countyCode, yuWeatherDB);
+                                                    DataBaseUtil.saveJSONToDataBase(true, response, countyCode, yuWeatherDB);
                                                     // 保存更新数据的时间
                                                     PrefUtils.setLong(getContext(), DataName.LAST_TIME, System.currentTimeMillis());
                                                     // 转到天气界面

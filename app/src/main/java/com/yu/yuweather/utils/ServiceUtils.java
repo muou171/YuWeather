@@ -8,7 +8,7 @@ public class ServiceUtils {
 
     public static void startUpdateDataRegularlyService(Context context) {
         stopUpdateDataRegularlyService(context);
-        JobScheduleUtils.schedule(context, UpdateDataRegularlyService.class, UpdateDataRegularlyService.SCHEDULE_CODE);
+        JobScheduleUtils.schedule(context, UpdateDataRegularlyService.class, UpdateDataRegularlyService.SCHEDULE_CODE, (long) (30 * 60 * 1000));
     }
 
     public static void stopUpdateDataRegularlyService(Context context) {

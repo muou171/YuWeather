@@ -6,10 +6,15 @@ import com.yu.yuweather.models.Now;
 
 public class DataBaseUtil {
 
-    public static void saveJSONToDataBase(String response, final String countyId, final YuWeatherDB yuWeatherDB) {
+    /**
+     * 保存JSON数据到数据库
+     *
+     * @param isFirst 是否第一次保存到数据库
+     */
+    public static void saveJSONToDataBase(boolean isFirst, String response, final String countyId, final YuWeatherDB yuWeatherDB) {
         // 保存NowJSON数据到数据库
         yuWeatherDB.deleteItemsFromNow(countyId);
-        JSONUtils.NowJSONSaveToDataBase(response, yuWeatherDB);
+        JSONUtils.NowJSONSaveToDataBase(isFirst, response, yuWeatherDB);
         Now.BasicBean basicBean = yuWeatherDB.loadBasic(countyId);
         String lat = basicBean.getLat();
         String lon = basicBean.getLon();

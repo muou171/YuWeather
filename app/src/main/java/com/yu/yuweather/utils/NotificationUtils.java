@@ -5,8 +5,8 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.yu.yuweather.R;
-import com.yu.yuweather.service.notification.FirstForecastService;
 import com.yu.yuweather.service.notification.ForecastService;
+import com.yu.yuweather.service.notification.NotificationService;
 
 import java.util.Calendar;
 
@@ -15,18 +15,7 @@ public class NotificationUtils {
     public static final int NOTIFICATION_ID = 21;
     public static final int FORECAST_ID = 22;
 
-    public static void startFirstForecastService(Context context) {
-        stopFirstForecastService(context);
-        JobScheduleUtils.scheduleFirstForecastMission(context, FirstForecastService.class, FirstForecastService.SCHEDULE_CODE);
-
-    }
-
-    public static void stopFirstForecastService(Context context) {
-        JobScheduleUtils.cancel(context, FirstForecastService.SCHEDULE_CODE);
-    }
-
     public static void startForecastService(Context context) {
-        stopFirstForecastService(context);
         stopForecastService(context);
         JobScheduleUtils.scheduleForecastMission(context, ForecastService.class, ForecastService.SCHEDULE_CODE);
 
@@ -34,6 +23,14 @@ public class NotificationUtils {
 
     public static void stopForecastService(Context context) {
         JobScheduleUtils.cancel(context, ForecastService.SCHEDULE_CODE);
+    }
+
+    public static void startNotificationService(Context context) {
+        JobScheduleUtils.schedule(context, NotificationService.class, NotificationService.SCHEDULE_CODE, 0);
+    }
+
+    public static void stopNotificationService(Context context) {
+        JobScheduleUtils.cancel(context, NotificationService.SCHEDULE_CODE);
     }
 
     public static long nowAndFirstForecastTimeDiffer(Context context) {

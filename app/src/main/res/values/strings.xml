@@ -55,7 +55,6 @@
     <string name="key_forecast_time">key_forecast_time</string>
     <string name="setting_choose_forecast_city">预报城市</string>
     <string name="setting_choose_forecast_city_summary">选择预报城市</string>
-    <string name="setting_choose_forecast_city_summary_in_null">请添加至少一个城市</string>
     <string name="key_choose_forecast_city">key_choose_forecast_city</string>
     <string name="setting_forecast_time_title">定时预报(今日天气)</string>
     <string name="setting_set_forecast_time_title">设定预报时间</string>
@@ -63,6 +62,9 @@
     <string name="setting_notification_title">通知</string>
     <string name="key_notification">key_notification</string>
     <string name="setting_open_notification">开启天气通知</string>
+    <string name="setting_choose_notification_city">通知城市</string>
+    <string name="setting_choose_notification_city_summary">选择通知城市</string>
+    <string name="key_choose_notification_city">key_choose_notification_city</string>
     <string name="key_notification_can_cleared">key_notification_can_cleared</string>
     <string name="setting_notification_can_cleared_off">常驻通知栏</string>
     <string name="setting_notification_can_cleared_on">可被清除</string>

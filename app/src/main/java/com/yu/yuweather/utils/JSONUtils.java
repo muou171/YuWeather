@@ -19,8 +19,10 @@ public class JSONUtils {
 
     /**
      * 解析天气Api返回的NowJSON数据，并把结果保存到数据库中
+     *
+     * @param isFirst 是否第一次保存到数据库
      */
-    public static void NowJSONSaveToDataBase(String response, YuWeatherDB yuWeatherDB) {
+    public static void NowJSONSaveToDataBase(boolean isFirst, String response, YuWeatherDB yuWeatherDB) {
         Gson gson = new Gson();
         try {
             JSONObject jsonObject = new JSONObject(response);
@@ -30,7 +32,7 @@ public class JSONUtils {
             Now.BasicBean basicBean = now.getBasic();
             String id = basicBean.getId();
             basicBean.getUpdate().setLoc(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date(System.currentTimeMillis())));
-            yuWeatherDB.saveBasicBean(basicBean);
+            yuWeatherDB.saveBasicBean(isFirst, basicBean);
             Now.NowBean nowBean = now.getNow();
             yuWeatherDB.saveNowBean(nowBean, id);
         } catch (JSONException e) {

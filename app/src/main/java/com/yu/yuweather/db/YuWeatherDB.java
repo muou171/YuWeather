@@ -123,16 +123,23 @@ public class YuWeatherDB {
 
     /**
      * 将BasicBean实例存储到数据库。
+     *
+     * @param isFirst 是否第一次保存到数据库
      */
-    public void saveBasicBean(Now.BasicBean basicBean) {
-        if (basicBean != null) {
-            ContentValues values = new ContentValues();
-            values.put("_id", basicBean.getId());
-            values.put("city", basicBean.getCity());
-            values.put("lat", basicBean.getLat());
-            values.put("lon", basicBean.getLon());
+    public void saveBasicBean(boolean isFirst, Now.BasicBean basicBean) {
+        ContentValues values = new ContentValues();
+        if (isFirst) {
+            if (basicBean != null) {
+                values.put("_id", basicBean.getId());
+                values.put("city", basicBean.getCity());
+                values.put("lat", basicBean.getLat());
+                values.put("lon", basicBean.getLon());
+                values.put("loc", Utils.BasicUpdateLocSub(basicBean.getUpdate().getLoc()));
+                db.insert(DataName.BASIC, null, values);
+            }
+        } else {
             values.put("loc", Utils.BasicUpdateLocSub(basicBean.getUpdate().getLoc()));
-            db.insert(DataName.BASIC, null, values);
+            db.update(DataName.BASIC, values, "_id = ?", new String[]{basicBean.getId()});
         }
     }
 
@@ -452,15 +459,6 @@ public class YuWeatherDB {
     }
 
     /**
-     * 根据城市ID，从Basic表删除对应的数据
-     */
-    public void deleteItemsFromBasic(String id) {
-        if (!TextUtils.isEmpty(id)) {
-            db.delete(DataName.BASIC, "_id = ?", new String[]{id});
-        }
-    }
-
-    /**
      * 根据城市ID，从Aqi表删除对应的数据
      */
     public void deleteItemsFromAqi(String id) {
@@ -519,7 +517,7 @@ public class YuWeatherDB {
     public void updateBasicOrder(List<Now.BasicBean> basicBeanList) {
         db.delete(DataName.BASIC, null, null);
         for (int i = 0; i < basicBeanList.size(); i++) {
-            saveBasicBean(basicBeanList.get(i));
+            saveBasicBean(true, basicBeanList.get(i));
         }
     }
 
@@ -551,6 +549,7 @@ public class YuWeatherDB {
         }
         return countyId;
     }
+
 
     /**
      * 根据appWidgetId数组，从WidgetDay表删除对应的数据
