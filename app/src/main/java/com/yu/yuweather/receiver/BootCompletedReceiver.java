@@ -20,6 +20,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
                 if (sharedPreferences.getBoolean(context.getString(R.string.key_forecast_time), false)) {
                     NotificationUtils.startForecastService(context);
                 }
+                if (sharedPreferences.getBoolean(context.getString(R.string.key_notification), false)) {
+                    NotificationUtils.startNotificationService(context);
+                }
         }
     }
 }

@@ -169,6 +169,7 @@ public class CityManagementFragment extends Fragment implements View.OnClickList
                                 }
                             });
                         }
+                        getActivity().sendBroadcast(new Intent("android.intent.action.UPDATE_DATA_FINISH"));
                         handler.post(new Runnable() {
                             @Override
                             public void run() {

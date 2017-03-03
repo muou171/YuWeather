@@ -2,6 +2,7 @@ package com.yu.yuweather.service;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;
+import android.content.Intent;
 
 import com.yu.yuweather.db.YuWeatherDB;
 import com.yu.yuweather.global.ApiConstants;
@@ -64,6 +65,8 @@ public class UpdateDataRegularlyService extends JobService {
                         }
                     });
                 }
+                // 发送更新数据完成的广播
+                sendBroadcast(new Intent("android.intent.action.UPDATE_DATA_FINISH"));
                 // 通知系统任务完成
                 jobFinished(currentJobParameters, false);
             }
