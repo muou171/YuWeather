@@ -17,7 +17,6 @@ import com.yu.yuweather.db.YuWeatherDB;
 import com.yu.yuweather.global.DataName;
 import com.yu.yuweather.models.DailyForecast;
 import com.yu.yuweather.models.Now;
-import com.yu.yuweather.receiver.UpdateDataFinishReceiver;
 import com.yu.yuweather.utils.IconUtils;
 import com.yu.yuweather.utils.NotificationUtils;
 import com.yu.yuweather.view.activity.MainActivity;
@@ -31,7 +30,6 @@ public class NotificationService extends JobService {
     private YuWeatherDB yuWeatherDB;
     private String countyId;
     private int index;
-    private UpdateDataFinishReceiver updateDataFinishReceiver;
 
     @Override
     public void onCreate() {

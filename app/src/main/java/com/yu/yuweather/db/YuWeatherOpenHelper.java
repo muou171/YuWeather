@@ -17,6 +17,7 @@ public class YuWeatherOpenHelper extends SQLiteOpenHelper {
             + "lat TEXT, "
             + "lon TEXT, "
             + "loc TEXT)";
+
     /**
      * 实况天气表建表语句
      */

@@ -57,6 +57,8 @@ public class DefaultChooseFragment extends Fragment implements View.OnClickListe
     private LocationManager locationManager;
     private ProgressDialog progressDialog;
 
+    private static final int requestCode = 900;
+
     private Handler handler = new Handler();
 
 
@@ -187,7 +189,7 @@ public class DefaultChooseFragment extends Fragment implements View.OnClickListe
     @TargetApi(Build.VERSION_CODES.M)
     private void requestPermissions() {
         ActivityCompat.requestPermissions(getActivity(),
-                new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 555);
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, requestCode);
     }
 
     private LocationListener locationListener = new LocationListener() {

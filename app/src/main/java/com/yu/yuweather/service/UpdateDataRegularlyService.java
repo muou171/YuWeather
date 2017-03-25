@@ -52,7 +52,8 @@ public class UpdateDataRegularlyService extends JobService {
                 }
                 for (int i = 0; i < countyIdList.size(); i++) {
                     final String countyId = countyIdList.get(i);
-                    HttpsUtil.sendHttpsRequest(ApiConstants.GetNowApiAddress(countyId), new HttpsUtil.HttpsCallbackListener() {
+                    HttpsUtil.sendHttpsRequest(ApiConstants.GetNowApiAddress(countyId),
+                            new HttpsUtil.HttpsCallbackListener() {
                         @Override
                         public void onFinish(String response) {
                             // 保存JSON数据到数据库

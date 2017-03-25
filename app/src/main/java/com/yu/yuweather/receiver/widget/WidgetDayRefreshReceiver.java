@@ -17,8 +17,6 @@ import com.yu.yuweather.utils.DataBaseUtil;
 import com.yu.yuweather.utils.HttpsUtil;
 import com.yu.yuweather.utils.IconUtils;
 
-import java.util.List;
-
 public class WidgetDayRefreshReceiver extends BroadcastReceiver {
 
     private YuWeatherDB yuWeatherDB;
@@ -29,7 +27,6 @@ public class WidgetDayRefreshReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         yuWeatherDB = YuWeatherDB.getInstance(context);
-        final List<Now.BasicBean> basicBeanList = yuWeatherDB.loadAllBasic();
         // 获取新数据
         final int appWidgetId = intent.getExtras().getInt(DataName.WIDGET_DAY_APP_WIDGET_ID);
         final String countyId = intent.getExtras().getString(DataName.WIDGET_DAY_COUNTY_ID);

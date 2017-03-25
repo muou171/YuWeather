@@ -31,7 +31,8 @@ public class JSONUtils {
             // 保存到数据库
             Now.BasicBean basicBean = now.getBasic();
             String id = basicBean.getId();
-            basicBean.getUpdate().setLoc(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date(System.currentTimeMillis())));
+            basicBean.getUpdate().setLoc(new SimpleDateFormat("yyyy-MM-dd HH:mm")
+                    .format(new Date(System.currentTimeMillis())));
             yuWeatherDB.saveBasicBean(isFirst, basicBean);
             Now.NowBean nowBean = now.getNow();
             yuWeatherDB.saveNowBean(nowBean, id);
